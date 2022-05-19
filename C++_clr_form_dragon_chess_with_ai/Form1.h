@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "Controller.h"
 namespace CppCLRWinFormsProject {
 
 	using namespace System;
@@ -12,12 +13,12 @@ namespace CppCLRWinFormsProject {
 	/// <summary>
 	/// Summary for Form1
 	/// </summary>
-	public ref class Form1 : public System::Windows::Forms::Form
+	public ref class Form1 : public System::Windows::Forms::Form 
 	{
 	public:
-		Form1(void)
+		Form1()
 		{
-			InitializeComponent();
+            InitializeComponent();
 			//
 			//TODO: Add the constructor code here
 			//
@@ -34,11 +35,14 @@ namespace CppCLRWinFormsProject {
 				delete components;
 			}
 		}
-    private: 
+    private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
+    protected:
+    private:
 
-    private: System::Windows::Forms::TableLayoutPanel^ l2;
+    Controller^ myController;
+  /*  private: System::Windows::Forms::TableLayoutPanel^ l2;
     private: System::Windows::Forms::TableLayoutPanel^ l3;
-    private: System::Windows::Forms::TableLayoutPanel^ l1;
+    private: System::Windows::Forms::TableLayoutPanel^ l1;*/
 
            /*
     private: System::Windows::Forms::Label^ label1;
@@ -151,118 +155,52 @@ namespace CppCLRWinFormsProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-            this->l1 = (gcnew System::Windows::Forms::TableLayoutPanel());
-            this->l2 = (gcnew System::Windows::Forms::TableLayoutPanel());
-            this->l3 = (gcnew System::Windows::Forms::TableLayoutPanel());
+            this->myController = (gcnew Controller());
+            this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
             this->SuspendLayout();
             // 
-            // l1
+            // tableLayoutPanel1
             // 
-            this->l1->AutoSize = true;
-            this->l1->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
-            this->l1->BackColor = System::Drawing::Color::Crimson;
-            this->l1->ColumnCount = 12;
-            this->l1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l1->GrowStyle = System::Windows::Forms::TableLayoutPanelGrowStyle::FixedSize;
-            this->l1->Location = System::Drawing::Point(12, 12);
-            this->l1->MaximumSize = System::Drawing::Size(1680, 1120);
-            this->l1->MinimumSize = System::Drawing::Size(600, 400);
-            this->l1->Name = L"l1";
-            this->l1->RowCount = 8;
-            this->l1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l1->Size = System::Drawing::Size(600, 400);
-            this->l1->TabIndex = 0;
-            this->l1->Visible = false;
-            // 
-            // l2
-            // 
-            this->l2->AutoSize = true;
-            this->l2->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
-            this->l2->BackColor = System::Drawing::Color::Crimson;
-            this->l2->ColumnCount = 12;
-            this->l2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l2->GrowStyle = System::Windows::Forms::TableLayoutPanelGrowStyle::FixedSize;
-            this->l2->Location = System::Drawing::Point(12, 12);
-            this->l2->MaximumSize = System::Drawing::Size(1680, 1120);
-            this->l2->MinimumSize = System::Drawing::Size(600, 400);
-            this->l2->Name = L"l2";
-            this->l2->RowCount = 8;
-            this->l2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l2->Size = System::Drawing::Size(600, 400);
-            this->l2->TabIndex = 0;
-            this->l2->Visible = false;
-            // 
-            // l3
-            // 
-            this->l3->AutoSize = true;
-            this->l3->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
-            this->l3->BackColor = System::Drawing::Color::Aquamarine;
-            this->l3->ColumnCount = 12;
-            this->l3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l3->ForeColor = System::Drawing::Color::Linen;
-            this->l3->GrowStyle = System::Windows::Forms::TableLayoutPanelGrowStyle::FixedSize;
-            this->l3->Location = System::Drawing::Point(12, 12);
-            this->l3->MaximumSize = System::Drawing::Size(1680, 1120);
-            this->l3->MinimumSize = System::Drawing::Size(600, 400);
-            this->l3->Name = L"l3";
-            this->l3->RowCount = 8;
-            this->l3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l3->Size = System::Drawing::Size(600, 400);
-            this->l3->TabIndex = 0;
+            this->tableLayoutPanel1->BackColor = System::Drawing::SystemColors::ScrollBar;
+            this->tableLayoutPanel1->ColumnCount = 12;
+            this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333332F)));
+            this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333332F)));
+            this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333332F)));
+            this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333332F)));
+            this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333332F)));
+            this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333332F)));
+            this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333332F)));
+            this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333332F)));
+            this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333332F)));
+            this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333332F)));
+            this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333332F)));
+            this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333332F)));
+            this->tableLayoutPanel1->GrowStyle = System::Windows::Forms::TableLayoutPanelGrowStyle::FixedSize;
+            this->tableLayoutPanel1->Location = System::Drawing::Point(86, 83);
+            this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
+            this->tableLayoutPanel1->RowCount = 8;
+            this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+            this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+            this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+            this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+            this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+            this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+            this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+            this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+            this->tableLayoutPanel1->Size = System::Drawing::Size(554, 324);
+            this->tableLayoutPanel1->TabIndex = 0;
             // 
             // Form1
             // 
@@ -270,14 +208,13 @@ namespace CppCLRWinFormsProject {
             this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
             this->BackColor = System::Drawing::SystemColors::ControlDarkDark;
             this->ClientSize = System::Drawing::Size(734, 562);
-            this->Controls->Add(this->l1);
+            this->Controls->Add(this->tableLayoutPanel1);
             this->ForeColor = System::Drawing::Color::Transparent;
             this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::SizableToolWindow;
             this->Name = L"Form1";
             this->Text = L"Dragon Chess";
             this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
             this->ResumeLayout(false);
-            this->PerformLayout();
 
         }
 #pragma endregion
