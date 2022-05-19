@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include "GameSetup.h";
+
 namespace CppCLRWinFormsProject {
 
 	using namespace System;
@@ -34,110 +36,20 @@ namespace CppCLRWinFormsProject {
 				delete components;
 			}
 		}
-    private: 
+    private: System::Windows::Forms::TableLayoutPanel^ airTablePanel;
+    private: System::Windows::Forms::TableLayoutPanel^ earthTablePanel;
+    private: System::Windows::Forms::TableLayoutPanel^ undergroundTablePanel;
+    private: array<TableLayoutPanel^>^ tables = gcnew array<TableLayoutPanel^>(3);
+    private: int currentTable = 1;
+    private: System::Windows::Forms::Button^ upButton;
+    private: System::Windows::Forms::Panel^ controlPanel;
+    private: System::Windows::Forms::Button^ downButton;
 
-    private: System::Windows::Forms::TableLayoutPanel^ l2;
-    private: System::Windows::Forms::TableLayoutPanel^ l3;
-    private: System::Windows::Forms::TableLayoutPanel^ l1;
 
-           /*
-    private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Label^ label5;
-	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::Label^ label3;
-    private: System::Windows::Forms::Label^ label78;
-    private: System::Windows::Forms::Label^ label77;
-    private: System::Windows::Forms::Label^ label76;
-    private: System::Windows::Forms::Label^ label75;
-    private: System::Windows::Forms::Label^ label74;
-    private: System::Windows::Forms::Label^ label73;
-    private: System::Windows::Forms::Label^ label72;
-    private: System::Windows::Forms::Label^ label71;
-    private: System::Windows::Forms::Label^ label70;
-    private: System::Windows::Forms::Label^ label69;
-    private: System::Windows::Forms::Label^ label68;
-    private: System::Windows::Forms::Label^ label67;
-    private: System::Windows::Forms::Label^ label66;
-    private: System::Windows::Forms::Label^ label65;
-    private: System::Windows::Forms::Label^ label64;
-    private: System::Windows::Forms::Label^ label63;
-    private: System::Windows::Forms::Label^ label62;
-    private: System::Windows::Forms::Label^ label60;
-    private: System::Windows::Forms::Label^ label59;
-    private: System::Windows::Forms::Label^ label58;
-    private: System::Windows::Forms::Label^ label57;
-    private: System::Windows::Forms::Label^ label56;
-    private: System::Windows::Forms::Label^ label55;
-    private: System::Windows::Forms::Label^ label54;
-    private: System::Windows::Forms::Label^ label53;
-    private: System::Windows::Forms::Label^ label52;
-    private: System::Windows::Forms::Label^ label51;
-    private: System::Windows::Forms::Label^ label50;
-    private: System::Windows::Forms::Label^ label49;
-    private: System::Windows::Forms::Label^ label48;
-    private: System::Windows::Forms::Label^ label47;
-    private: System::Windows::Forms::Label^ label46;
-    private: System::Windows::Forms::Label^ label45;
-    private: System::Windows::Forms::Label^ label44;
-    private: System::Windows::Forms::Label^ label43;
-    private: System::Windows::Forms::Label^ label42;
-    private: System::Windows::Forms::Label^ label41;
-    private: System::Windows::Forms::Label^ label40;
-    private: System::Windows::Forms::Label^ label39;
-    private: System::Windows::Forms::Label^ label38;
-    private: System::Windows::Forms::Label^ label37;
-    private: System::Windows::Forms::Label^ label36;
-    private: System::Windows::Forms::Label^ label35;
-    private: System::Windows::Forms::Label^ label34;
-    private: System::Windows::Forms::Label^ label33;
-    private: System::Windows::Forms::Label^ label32;
-    private: System::Windows::Forms::Label^ label31;
-    private: System::Windows::Forms::Label^ label30;
-    private: System::Windows::Forms::Label^ label29;
-    private: System::Windows::Forms::Label^ label28;
-    private: System::Windows::Forms::Label^ label27;
-    private: System::Windows::Forms::Label^ label26;
-    private: System::Windows::Forms::Label^ label25;
-    private: System::Windows::Forms::Label^ label24;
-    private: System::Windows::Forms::Label^ label23;
-    private: System::Windows::Forms::Label^ label22;
-    private: System::Windows::Forms::Label^ label21;
-    private: System::Windows::Forms::Label^ label20;
-    private: System::Windows::Forms::Label^ label19;
-    private: System::Windows::Forms::Label^ label18;
-    private: System::Windows::Forms::Label^ label17;
-    private: System::Windows::Forms::Label^ label16;
-    private: System::Windows::Forms::Label^ label15;
-    private: System::Windows::Forms::Label^ label14;
-    private: System::Windows::Forms::Label^ label13;
-    private: System::Windows::Forms::Label^ label12;
-    private: System::Windows::Forms::Label^ label11;
-    private: System::Windows::Forms::Label^ label10;
-    private: System::Windows::Forms::Label^ label9;
-    private: System::Windows::Forms::Label^ label8;
-    private: System::Windows::Forms::Label^ label7;
-    private: System::Windows::Forms::Label^ label6;
-    private: System::Windows::Forms::Label^ label96;
-    private: System::Windows::Forms::Label^ label95;
-    private: System::Windows::Forms::Label^ label94;
-    private: System::Windows::Forms::Label^ label93;
-    private: System::Windows::Forms::Label^ label92;
-    private: System::Windows::Forms::Label^ label91;
-    private: System::Windows::Forms::Label^ label90;
-    private: System::Windows::Forms::Label^ label89;
-    private: System::Windows::Forms::Label^ label88;
-    private: System::Windows::Forms::Label^ label87;
-    private: System::Windows::Forms::Label^ label86;
-    private: System::Windows::Forms::Label^ label85;
-    private: System::Windows::Forms::Label^ label84;
-    private: System::Windows::Forms::Label^ label83;
-    private: System::Windows::Forms::Label^ label82;
-    private: System::Windows::Forms::Label^ label81;
-    private: System::Windows::Forms::Label^ label80;
-    private: System::Windows::Forms::Label^ label79;
-    private: System::Windows::Forms::Label^ label61;
-*/
+
+
+
+
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -151,142 +63,262 @@ namespace CppCLRWinFormsProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-            this->l1 = (gcnew System::Windows::Forms::TableLayoutPanel());
-            this->l2 = (gcnew System::Windows::Forms::TableLayoutPanel());
-            this->l3 = (gcnew System::Windows::Forms::TableLayoutPanel());
+            this->airTablePanel = (gcnew System::Windows::Forms::TableLayoutPanel());
+            this->earthTablePanel = (gcnew System::Windows::Forms::TableLayoutPanel());
+            this->undergroundTablePanel = (gcnew System::Windows::Forms::TableLayoutPanel());
+            this->upButton = (gcnew System::Windows::Forms::Button());
+            this->controlPanel = (gcnew System::Windows::Forms::Panel());
+            this->downButton = (gcnew System::Windows::Forms::Button());
+            this->controlPanel->SuspendLayout();
             this->SuspendLayout();
             // 
-            // l1
+            // airTablePanel
             // 
-            this->l1->AutoSize = true;
-            this->l1->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
-            this->l1->BackColor = System::Drawing::Color::Crimson;
-            this->l1->ColumnCount = 12;
-            this->l1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l1->GrowStyle = System::Windows::Forms::TableLayoutPanelGrowStyle::FixedSize;
-            this->l1->Location = System::Drawing::Point(12, 12);
-            this->l1->MaximumSize = System::Drawing::Size(1680, 1120);
-            this->l1->MinimumSize = System::Drawing::Size(600, 400);
-            this->l1->Name = L"l1";
-            this->l1->RowCount = 8;
-            this->l1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l1->Size = System::Drawing::Size(600, 400);
-            this->l1->TabIndex = 0;
-            this->l1->Visible = false;
+            this->airTablePanel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
+            this->airTablePanel->AutoSize = true;
+            this->airTablePanel->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
+            this->airTablePanel->BackColor = System::Drawing::SystemColors::ActiveCaption;
+            this->airTablePanel->ColumnCount = 12;
+            this->airTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->airTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->airTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->airTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->airTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->airTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->airTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->airTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->airTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->airTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->airTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->airTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->airTablePanel->GrowStyle = System::Windows::Forms::TableLayoutPanelGrowStyle::FixedSize;
+            this->airTablePanel->Location = System::Drawing::Point(12, 12);
+            this->airTablePanel->Margin = System::Windows::Forms::Padding(0);
+            this->airTablePanel->MaximumSize = System::Drawing::Size(2240, 1378);
+            this->airTablePanel->MinimumSize = System::Drawing::Size(800, 492);
+            this->airTablePanel->Name = L"airTablePanel";
+            this->airTablePanel->RowCount = 8;
+            this->airTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+            this->airTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+            this->airTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+            this->airTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+            this->airTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+            this->airTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+            this->airTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+            this->airTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+            this->airTablePanel->Size = System::Drawing::Size(800, 492);
+            this->airTablePanel->TabIndex = 0;
+            this->airTablePanel->Visible = false;
             // 
-            // l2
+            // earthTablePanel
             // 
-            this->l2->AutoSize = true;
-            this->l2->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
-            this->l2->BackColor = System::Drawing::Color::Crimson;
-            this->l2->ColumnCount = 12;
-            this->l2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l2->GrowStyle = System::Windows::Forms::TableLayoutPanelGrowStyle::FixedSize;
-            this->l2->Location = System::Drawing::Point(12, 12);
-            this->l2->MaximumSize = System::Drawing::Size(1680, 1120);
-            this->l2->MinimumSize = System::Drawing::Size(600, 400);
-            this->l2->Name = L"l2";
-            this->l2->RowCount = 8;
-            this->l2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l2->Size = System::Drawing::Size(600, 400);
-            this->l2->TabIndex = 0;
-            this->l2->Visible = false;
+            this->earthTablePanel->AutoSize = true;
+            this->earthTablePanel->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
+            this->earthTablePanel->ColumnCount = 12;
+            this->earthTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->earthTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->earthTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->earthTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->earthTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->earthTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->earthTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->earthTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->earthTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->earthTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->earthTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->earthTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->earthTablePanel->GrowStyle = System::Windows::Forms::TableLayoutPanelGrowStyle::FixedSize;
+            this->earthTablePanel->Location = System::Drawing::Point(12, 12);
+            this->earthTablePanel->MaximumSize = System::Drawing::Size(1680, 1120);
+            this->earthTablePanel->MinimumSize = System::Drawing::Size(600, 400);
+            this->earthTablePanel->Name = L"earthTablePanel";
+            this->earthTablePanel->RowCount = 8;
+            this->earthTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+            this->earthTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+            this->earthTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+            this->earthTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+            this->earthTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+            this->earthTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+            this->earthTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+            this->earthTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+            this->earthTablePanel->Size = System::Drawing::Size(600, 400);
+            this->earthTablePanel->TabIndex = 0;
             // 
-            // l3
+            // undergroundTablePanel
             // 
-            this->l3->AutoSize = true;
-            this->l3->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
-            this->l3->BackColor = System::Drawing::Color::Aquamarine;
-            this->l3->ColumnCount = 12;
-            this->l3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 8.333335F)));
-            this->l3->ForeColor = System::Drawing::Color::Linen;
-            this->l3->GrowStyle = System::Windows::Forms::TableLayoutPanelGrowStyle::FixedSize;
-            this->l3->Location = System::Drawing::Point(12, 12);
-            this->l3->MaximumSize = System::Drawing::Size(1680, 1120);
-            this->l3->MinimumSize = System::Drawing::Size(600, 400);
-            this->l3->Name = L"l3";
-            this->l3->RowCount = 8;
-            this->l3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->l3->Size = System::Drawing::Size(600, 400);
-            this->l3->TabIndex = 0;
+            this->undergroundTablePanel->AutoSize = true;
+            this->undergroundTablePanel->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
+            this->undergroundTablePanel->ColumnCount = 12;
+            this->undergroundTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->undergroundTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->undergroundTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->undergroundTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->undergroundTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->undergroundTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->undergroundTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->undergroundTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->undergroundTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->undergroundTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->undergroundTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->undergroundTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+                8.333335F)));
+            this->undergroundTablePanel->ForeColor = System::Drawing::Color::Linen;
+            this->undergroundTablePanel->GrowStyle = System::Windows::Forms::TableLayoutPanelGrowStyle::FixedSize;
+            this->undergroundTablePanel->Location = System::Drawing::Point(12, 12);
+            this->undergroundTablePanel->MaximumSize = System::Drawing::Size(1680, 1120);
+            this->undergroundTablePanel->MinimumSize = System::Drawing::Size(600, 400);
+            this->undergroundTablePanel->Name = L"undergroundTablePanel";
+            this->undergroundTablePanel->RowCount = 8;
+            this->undergroundTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent,
+                12.5F)));
+            this->undergroundTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent,
+                12.5F)));
+            this->undergroundTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent,
+                12.5F)));
+            this->undergroundTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent,
+                12.5F)));
+            this->undergroundTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent,
+                12.5F)));
+            this->undergroundTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent,
+                12.5F)));
+            this->undergroundTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent,
+                12.5F)));
+            this->undergroundTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent,
+                12.5F)));
+            this->undergroundTablePanel->Size = System::Drawing::Size(600, 400);
+            this->undergroundTablePanel->TabIndex = 0;
+            this->undergroundTablePanel->Visible = false;
+            // 
+            // upButton
+            // 
+            this->upButton->ForeColor = System::Drawing::Color::Black;
+            this->upButton->Location = System::Drawing::Point(77, 28);
+            this->upButton->Name = L"upButton";
+            this->upButton->Size = System::Drawing::Size(39, 29);
+            this->upButton->TabIndex = 1;
+            this->upButton->Text = L"/\\";
+            this->upButton->UseVisualStyleBackColor = true;
+            this->upButton->Click += gcnew System::EventHandler(this, &Form1::upButton_Click);
+            // 
+            // controlPanel
+            // 
+            this->controlPanel->Controls->Add(this->downButton);
+            this->controlPanel->Controls->Add(this->upButton);
+            this->controlPanel->Location = System::Drawing::Point(12, 593);
+            this->controlPanel->Name = L"controlPanel";
+            this->controlPanel->Size = System::Drawing::Size(119, 87);
+            this->controlPanel->TabIndex = 3;
+            // 
+            // downButton
+            // 
+            this->downButton->ForeColor = System::Drawing::Color::Black;
+            this->downButton->Location = System::Drawing::Point(3, 28);
+            this->downButton->Name = L"downButton";
+            this->downButton->Size = System::Drawing::Size(39, 29);
+            this->downButton->TabIndex = 2;
+            this->downButton->Text = L"\\/";
+            this->downButton->UseVisualStyleBackColor = true;
+            this->downButton->Click += gcnew System::EventHandler(this, &Form1::downButton_Click);
             // 
             // Form1
             // 
-            this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+            this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
             this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
             this->BackColor = System::Drawing::SystemColors::ControlDarkDark;
-            this->ClientSize = System::Drawing::Size(734, 562);
-            this->Controls->Add(this->l1);
+            this->ClientSize = System::Drawing::Size(979, 692);
+            this->Controls->Add(this->controlPanel);
+            this->Controls->Add(this->airTablePanel);
+            this->Controls->Add(this->earthTablePanel);
+            this->Controls->Add(this->undergroundTablePanel);
             this->ForeColor = System::Drawing::Color::Transparent;
             this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::SizableToolWindow;
+            this->Margin = System::Windows::Forms::Padding(4);
             this->Name = L"Form1";
             this->Text = L"Dragon Chess";
             this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
+            this->controlPanel->ResumeLayout(false);
             this->ResumeLayout(false);
             this->PerformLayout();
 
         }
+        private: void DrawCells(TableLayoutPanel^ table, Color white, Color black, char initPosition[8][12])
+        {
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 12; j++) {
+                    Label^ tmp = gcnew Label();
+                    tmp->Text = initPosition[i][j].ToString();
+                    tmp->AutoSize = true;
+                    tmp->Anchor = static_cast<AnchorStyles>((((AnchorStyles::Top | AnchorStyles::Bottom) | System::Windows::Forms::AnchorStyles::Left) | AnchorStyles::Right));
+                    tmp->Margin = System::Windows::Forms::Padding(0);
+                    tmp->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+                    tmp->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                        static_cast<System::Byte>(0)));
+                    if ((i + j) % 2 == 0) tmp->BackColor = white;
+                    else tmp->BackColor = black;
+                    tmp->ForeColor = System::Drawing::Color::White;
+                    table->Controls->Add(tmp);
+                }
+            }
+        }
 #pragma endregion
-	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {	}
 	private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
+        DrawCells(airTablePanel, Color::FromArgb(236, 236, 236), Color::FromArgb(98, 178, 255), GameSetup::initAirTableSetup);
+        DrawCells(earthTablePanel, Color::FromArgb(205, 163, 91), Color::FromArgb(0, 143, 0), GameSetup::initEarthTableSetup);
+        DrawCells(undergroundTablePanel, Color::FromArgb(220, 28, 11), Color::FromArgb(129, 62, 0), GameSetup::initUndergroundTableSetup);
+
+        tables[0] = airTablePanel;
+        tables[1] = earthTablePanel;
+        tables[2] = undergroundTablePanel;
+
+        tables[currentTable]->Visible = true;
 	}
-	private: System::Void tableLayoutPanel2_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-	}
-    private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+    private: System::Void upButton_Click(System::Object^ sender, System::EventArgs^ e) {
+        tables[currentTable]->Visible = false;
+        currentTable--;
+        if (currentTable < 0) currentTable = 2;
+        tables[currentTable]->Visible = true;
+    }
+    private: System::Void downButton_Click(System::Object^ sender, System::EventArgs^ e) {
+        tables[currentTable]->Visible = false;
+        currentTable = (currentTable + 1) % 3;
+        tables[currentTable]->Visible = true;
     }
 };
 }
