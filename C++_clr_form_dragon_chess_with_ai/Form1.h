@@ -40,9 +40,9 @@ namespace CppCLRWinFormsProject {
     private:
 
     Controller^ myController;
-  /*  private: System::Windows::Forms::TableLayoutPanel^ l2;
+    private: System::Windows::Forms::TableLayoutPanel^ l2;
     private: System::Windows::Forms::TableLayoutPanel^ l3;
-    private: System::Windows::Forms::TableLayoutPanel^ l1;*/
+    private: System::Windows::Forms::TableLayoutPanel^ l1;
 
            /*
     private: System::Windows::Forms::Label^ label1;
@@ -155,7 +155,6 @@ namespace CppCLRWinFormsProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-            this->myController = (gcnew Controller());
             this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
             this->SuspendLayout();
             // 
@@ -220,6 +219,10 @@ namespace CppCLRWinFormsProject {
 #pragma endregion
 	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {	}
 	private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
+        this->SuspendLayout();
+        this->myController = (gcnew Controller());
+        this->ResumeLayout();
+
 	}
 	private: System::Void tableLayoutPanel2_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}

@@ -4,6 +4,7 @@
 ref class Controller
 {
 public:
+	Controller();
 	Model^ my_model;
 };
 
