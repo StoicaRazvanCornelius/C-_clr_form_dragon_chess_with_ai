@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-#include "Controller.h"
 #include "GameSetup.h";
 #include "GameTableView.h";
 namespace CppCLRWinFormsProject {
@@ -37,8 +36,8 @@ namespace CppCLRWinFormsProject {
 				delete components;
 			}
 		}
-        Controller^ myController;
-
+     
+	//private:Controller^ myController;
     private: GameTableView^ airTablePanel;
     private: GameTableView^ earthTablePanel;
     private: GameTableView^ undergroundTablePanel;
@@ -46,15 +45,15 @@ namespace CppCLRWinFormsProject {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container^ components;
-
+	System::ComponentModel::Container^ components;
     private: array<TableLayoutPanel^>^ tables = gcnew array<TableLayoutPanel^>(3);
     private: int currentTable = 1;
     private: System::Windows::Forms::Button^ upButton;
     private: System::Windows::Forms::Panel^ controlPanel;
     private: System::Windows::Forms::Button^ downButton;
 	private: System::Windows::Forms::TableLayoutPanel^ gameGrid;
-
+	private:
+		void InitializeComponent(){
 
 			this->upButton = (gcnew System::Windows::Forms::Button());
 			this->controlPanel = (gcnew System::Windows::Forms::Panel());
@@ -144,7 +143,7 @@ namespace CppCLRWinFormsProject {
 		}
 
 private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
-		this->myController = (gcnew Controller());
+		//this->myController = (gcnew Controller());
 		airTablePanel = gcnew GameTableView(Color::FromArgb(236, 236, 236), Color::FromArgb(98, 178, 255), GameSetup::initAirTableSetup);
         earthTablePanel = gcnew GameTableView(Color::FromArgb(205, 163, 91), Color::FromArgb(0, 143, 0), GameSetup::initEarthTableSetup);
         undergroundTablePanel = gcnew GameTableView(Color::FromArgb(220, 28, 11), Color::FromArgb(129, 62, 0), GameSetup::initUndergroundTableSetup);
@@ -165,15 +164,13 @@ private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
         if (currentTable < 0) currentTable = 2;
         tables[currentTable]->Visible = true;
     }
-    private: System::Void downButton_Click(System::Object^ sender, System::EventArgs^ e) {
-        tables[currentTable]->Visible = false;
-        currentTable = (currentTable + 1) % 3;
-        tables[currentTable]->Visible = true;
+	private: System::Void downButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		tables[currentTable]->Visible = false;
+		currentTable = (currentTable + 1) % 3;
+		tables[currentTable]->Visible = true;
 
-
-	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {	}
-	private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
+	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {	}
 	private: System::Void tableLayoutPanel2_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
     private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {

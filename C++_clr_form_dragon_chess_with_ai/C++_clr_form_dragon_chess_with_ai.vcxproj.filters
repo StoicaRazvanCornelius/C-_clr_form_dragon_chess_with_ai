@@ -32,9 +32,6 @@
     <ClInclude Include="Cell.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Model.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GameSetup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
