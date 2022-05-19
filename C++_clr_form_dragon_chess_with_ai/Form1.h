@@ -1,8 +1,5 @@
 #pragma once
 #include <iostream>
-#include "GameSetup.h";
-
-#include "Controller.h"
 namespace CppCLRWinFormsProject {
 
 	using namespace System;
@@ -15,12 +12,12 @@ namespace CppCLRWinFormsProject {
 	/// <summary>
 	/// Summary for Form1
 	/// </summary>
-	public ref class Form1 : public System::Windows::Forms::Form 
+	public ref class Form1 : public System::Windows::Forms::Form
 	{
 	public:
-		Form1()
+		Form1(void)
 		{
-            InitializeComponent();
+			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
 			//
@@ -188,6 +185,7 @@ namespace CppCLRWinFormsProject {
             this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
             this->controlPanel->ResumeLayout(false);
             this->ResumeLayout(false);
+            this->PerformLayout();
 
         }
         private: void DrawCells(TableLayoutPanel^ table, Color white, Color black, char initPosition[8][12])
