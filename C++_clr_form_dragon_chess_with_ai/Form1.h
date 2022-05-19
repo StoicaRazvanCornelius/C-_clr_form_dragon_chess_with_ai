@@ -51,6 +51,8 @@ namespace CppCLRWinFormsProject {
     private: System::Windows::Forms::Panel^ controlPanel;
     private: System::Windows::Forms::Button^ downButton;
 
+
+
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -64,15 +66,13 @@ namespace CppCLRWinFormsProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			
-			this->airTablePanel = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->earthTablePanel = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->undergroundTablePanel = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->upButton = (gcnew System::Windows::Forms::Button());
-			this->controlPanel = (gcnew System::Windows::Forms::Panel());
-			this->downButton = (gcnew System::Windows::Forms::Button());
-			this->controlPanel->SuspendLayout();
-
+            this->airTablePanel = (gcnew System::Windows::Forms::TableLayoutPanel());
+            this->earthTablePanel = (gcnew System::Windows::Forms::TableLayoutPanel());
+            this->undergroundTablePanel = (gcnew System::Windows::Forms::TableLayoutPanel());
+            this->upButton = (gcnew System::Windows::Forms::Button());
+            this->controlPanel = (gcnew System::Windows::Forms::Panel());
+            this->downButton = (gcnew System::Windows::Forms::Button());
+            this->controlPanel->SuspendLayout();
             this->SuspendLayout();
             // 
             // airTablePanel
@@ -109,10 +109,10 @@ namespace CppCLRWinFormsProject {
             this->airTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
                 8.333335F)));
             this->airTablePanel->GrowStyle = System::Windows::Forms::TableLayoutPanelGrowStyle::FixedSize;
-            this->airTablePanel->Location = System::Drawing::Point(12, 12);
+            this->airTablePanel->Location = System::Drawing::Point(9, 10);
             this->airTablePanel->Margin = System::Windows::Forms::Padding(0);
-            this->airTablePanel->MaximumSize = System::Drawing::Size(2240, 1378);
-            this->airTablePanel->MinimumSize = System::Drawing::Size(800, 492);
+            this->airTablePanel->MaximumSize = System::Drawing::Size(1680, 1120);
+            this->airTablePanel->MinimumSize = System::Drawing::Size(600, 400);
             this->airTablePanel->Name = L"airTablePanel";
             this->airTablePanel->RowCount = 8;
             this->airTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
@@ -123,9 +123,10 @@ namespace CppCLRWinFormsProject {
             this->airTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
             this->airTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
             this->airTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->airTablePanel->Size = System::Drawing::Size(800, 492);
+            this->airTablePanel->Size = System::Drawing::Size(600, 400);
             this->airTablePanel->TabIndex = 0;
             this->airTablePanel->Visible = false;
+            this->airTablePanel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Form1::airTablePanel_Paint);
             // 
             // earthTablePanel
             // 
@@ -157,9 +158,10 @@ namespace CppCLRWinFormsProject {
             this->earthTablePanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
                 8.333335F)));
             this->earthTablePanel->GrowStyle = System::Windows::Forms::TableLayoutPanelGrowStyle::FixedSize;
-            this->earthTablePanel->Location = System::Drawing::Point(12, 12);
-            this->earthTablePanel->MaximumSize = System::Drawing::Size(1680, 1120);
-            this->earthTablePanel->MinimumSize = System::Drawing::Size(600, 400);
+            this->earthTablePanel->Location = System::Drawing::Point(9, 10);
+            this->earthTablePanel->Margin = System::Windows::Forms::Padding(2);
+            this->earthTablePanel->MaximumSize = System::Drawing::Size(1260, 910);
+            this->earthTablePanel->MinimumSize = System::Drawing::Size(450, 325);
             this->earthTablePanel->Name = L"earthTablePanel";
             this->earthTablePanel->RowCount = 8;
             this->earthTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
@@ -170,7 +172,7 @@ namespace CppCLRWinFormsProject {
             this->earthTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
             this->earthTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
             this->earthTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-            this->earthTablePanel->Size = System::Drawing::Size(600, 400);
+            this->earthTablePanel->Size = System::Drawing::Size(450, 325);
             this->earthTablePanel->TabIndex = 0;
             // 
             // undergroundTablePanel
@@ -204,9 +206,10 @@ namespace CppCLRWinFormsProject {
                 8.333335F)));
             this->undergroundTablePanel->ForeColor = System::Drawing::Color::Linen;
             this->undergroundTablePanel->GrowStyle = System::Windows::Forms::TableLayoutPanelGrowStyle::FixedSize;
-            this->undergroundTablePanel->Location = System::Drawing::Point(12, 12);
-            this->undergroundTablePanel->MaximumSize = System::Drawing::Size(1680, 1120);
-            this->undergroundTablePanel->MinimumSize = System::Drawing::Size(600, 400);
+            this->undergroundTablePanel->Location = System::Drawing::Point(9, 10);
+            this->undergroundTablePanel->Margin = System::Windows::Forms::Padding(2);
+            this->undergroundTablePanel->MaximumSize = System::Drawing::Size(1260, 910);
+            this->undergroundTablePanel->MinimumSize = System::Drawing::Size(450, 325);
             this->undergroundTablePanel->Name = L"undergroundTablePanel";
             this->undergroundTablePanel->RowCount = 8;
             this->undergroundTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent,
@@ -225,16 +228,17 @@ namespace CppCLRWinFormsProject {
                 12.5F)));
             this->undergroundTablePanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent,
                 12.5F)));
-            this->undergroundTablePanel->Size = System::Drawing::Size(600, 400);
+            this->undergroundTablePanel->Size = System::Drawing::Size(450, 325);
             this->undergroundTablePanel->TabIndex = 0;
             this->undergroundTablePanel->Visible = false;
             // 
             // upButton
             // 
             this->upButton->ForeColor = System::Drawing::Color::Black;
-            this->upButton->Location = System::Drawing::Point(77, 28);
+            this->upButton->Location = System::Drawing::Point(58, 23);
+            this->upButton->Margin = System::Windows::Forms::Padding(2);
             this->upButton->Name = L"upButton";
-            this->upButton->Size = System::Drawing::Size(39, 29);
+            this->upButton->Size = System::Drawing::Size(29, 24);
             this->upButton->TabIndex = 1;
             this->upButton->Text = L"/\\";
             this->upButton->UseVisualStyleBackColor = true;
@@ -244,17 +248,19 @@ namespace CppCLRWinFormsProject {
             // 
             this->controlPanel->Controls->Add(this->downButton);
             this->controlPanel->Controls->Add(this->upButton);
-            this->controlPanel->Location = System::Drawing::Point(12, 593);
+            this->controlPanel->Location = System::Drawing::Point(9, 482);
+            this->controlPanel->Margin = System::Windows::Forms::Padding(2);
             this->controlPanel->Name = L"controlPanel";
-            this->controlPanel->Size = System::Drawing::Size(119, 87);
+            this->controlPanel->Size = System::Drawing::Size(89, 71);
             this->controlPanel->TabIndex = 3;
             // 
             // downButton
             // 
             this->downButton->ForeColor = System::Drawing::Color::Black;
-            this->downButton->Location = System::Drawing::Point(3, 28);
+            this->downButton->Location = System::Drawing::Point(2, 23);
+            this->downButton->Margin = System::Windows::Forms::Padding(2);
             this->downButton->Name = L"downButton";
-            this->downButton->Size = System::Drawing::Size(39, 29);
+            this->downButton->Size = System::Drawing::Size(29, 24);
             this->downButton->TabIndex = 2;
             this->downButton->Text = L"\\/";
             this->downButton->UseVisualStyleBackColor = true;
@@ -262,17 +268,16 @@ namespace CppCLRWinFormsProject {
             // 
             // Form1
             // 
-            this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+            this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
             this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
             this->BackColor = System::Drawing::SystemColors::ControlDarkDark;
-            this->ClientSize = System::Drawing::Size(979, 692);
+            this->ClientSize = System::Drawing::Size(734, 562);
             this->Controls->Add(this->controlPanel);
             this->Controls->Add(this->airTablePanel);
             this->Controls->Add(this->earthTablePanel);
             this->Controls->Add(this->undergroundTablePanel);
             this->ForeColor = System::Drawing::Color::Transparent;
             this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::SizableToolWindow;
-            this->Margin = System::Windows::Forms::Padding(4);
             this->Name = L"Form1";
             this->Text = L"Dragon Chess";
             this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
@@ -293,10 +298,12 @@ namespace CppCLRWinFormsProject {
                 tmp->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
                 tmp->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                     static_cast<System::Byte>(0)));
+                tmp->Click += gcnew System::EventHandler(this, &Form1::tableBlock_Clicked);
                 if ((i + j) % 2 == 0) tmp->BackColor = white;
                 else tmp->BackColor = black;
                 tmp->ForeColor = System::Drawing::Color::White;
                 table->Controls->Add(tmp);
+                
             }
         }
     }
@@ -323,6 +330,11 @@ namespace CppCLRWinFormsProject {
         tables[currentTable]->Visible = false;
         currentTable = (currentTable + 1) % 3;
         tables[currentTable]->Visible = true;
+    }
+    private: System::Void tableBlock_Clicked(System::Object^ sender, System::EventArgs^ e) {
+        this->BackColor = System::Drawing::Color::Black;
+    }
+    private: System::Void airTablePanel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
     }
 };
 }
