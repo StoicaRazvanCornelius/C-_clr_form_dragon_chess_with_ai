@@ -2,6 +2,7 @@
 #include <iostream>
 #include "GameSetup.h";
 #include "GameTableView.h";
+#include "GameLogic.h"
 namespace CppCLRWinFormsProject {
 
 	using namespace System;
@@ -37,7 +38,7 @@ namespace CppCLRWinFormsProject {
 			}
 		}
      
-	//private:Controller^ myController;
+	private:GameLogic^ gameLogic;
     private: GameTableView^ airTablePanel;
     private: GameTableView^ earthTablePanel;
     private: GameTableView^ undergroundTablePanel;
@@ -54,7 +55,6 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TableLayoutPanel^ gameGrid;
 	private:
 		void InitializeComponent(){
-
 			this->upButton = (gcnew System::Windows::Forms::Button());
 			this->controlPanel = (gcnew System::Windows::Forms::Panel());
 			this->downButton = (gcnew System::Windows::Forms::Button());
@@ -72,9 +72,10 @@ namespace CppCLRWinFormsProject {
 			this->upButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->upButton->ForeColor = System::Drawing::Color::White;
-			this->upButton->Location = System::Drawing::Point(111, 3);
+			this->upButton->Location = System::Drawing::Point(83, 2);
+			this->upButton->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->upButton->Name = L"upButton";
-			this->upButton->Size = System::Drawing::Size(39, 39);
+			this->upButton->Size = System::Drawing::Size(29, 32);
 			this->upButton->TabIndex = 1;
 			this->upButton->Text = L"/\\";
 			this->upButton->UseVisualStyleBackColor = false;
@@ -84,9 +85,10 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->controlPanel->Controls->Add(this->downButton);
 			this->controlPanel->Controls->Add(this->upButton);
-			this->controlPanel->Location = System::Drawing::Point(1079, 3);
+			this->controlPanel->Location = System::Drawing::Point(809, 2);
+			this->controlPanel->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->controlPanel->Name = L"controlPanel";
-			this->controlPanel->Size = System::Drawing::Size(153, 45);
+			this->controlPanel->Size = System::Drawing::Size(115, 37);
 			this->controlPanel->TabIndex = 3;
 			// 
 			// downButton
@@ -98,9 +100,10 @@ namespace CppCLRWinFormsProject {
 			this->downButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->downButton->ForeColor = System::Drawing::Color::White;
-			this->downButton->Location = System::Drawing::Point(64, 3);
+			this->downButton->Location = System::Drawing::Point(48, 2);
+			this->downButton->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->downButton->Name = L"downButton";
-			this->downButton->Size = System::Drawing::Size(41, 39);
+			this->downButton->Size = System::Drawing::Size(31, 32);
 			this->downButton->TabIndex = 2;
 			this->downButton->Text = L"\\/";
 			this->downButton->UseVisualStyleBackColor = false;
@@ -115,24 +118,24 @@ namespace CppCLRWinFormsProject {
 			this->gameGrid->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 87.18488F)));
 			this->gameGrid->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 12.81513F)));
 			this->gameGrid->Controls->Add(this->controlPanel, 1, 0);
-			this->gameGrid->Location = System::Drawing::Point(15, 12);
+			this->gameGrid->Location = System::Drawing::Point(11, 10);
+			this->gameGrid->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->gameGrid->Name = L"gameGrid";
 			this->gameGrid->RowCount = 1;
 			this->gameGrid->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->gameGrid->Size = System::Drawing::Size(1235, 668);
+			this->gameGrid->Size = System::Drawing::Size(926, 543);
 			this->gameGrid->TabIndex = 4;
 			// 
 			// Form1
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ControlDarkDark;
-			this->ClientSize = System::Drawing::Size(1262, 692);
+			this->ClientSize = System::Drawing::Size(948, 562);
 			this->Controls->Add(this->gameGrid);
 			this->ForeColor = System::Drawing::Color::Transparent;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::SizableToolWindow;
-			this->Margin = System::Windows::Forms::Padding(4);
-			this->MinimumSize = System::Drawing::Size(1280, 720);
+			this->MinimumSize = System::Drawing::Size(964, 592);
 			this->Name = L"Form1";
 			this->Text = L"Dragon Chess";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
@@ -143,19 +146,21 @@ namespace CppCLRWinFormsProject {
 		}
 
 private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
-		//this->myController = (gcnew Controller());
+		this->gameLogic= (gcnew GameLogic());
 		airTablePanel = gcnew GameTableView(Color::FromArgb(236, 236, 236), Color::FromArgb(98, 178, 255), GameSetup::initAirTableSetup);
-        earthTablePanel = gcnew GameTableView(Color::FromArgb(205, 163, 91), Color::FromArgb(0, 143, 0), GameSetup::initEarthTableSetup);
-        undergroundTablePanel = gcnew GameTableView(Color::FromArgb(220, 28, 11), Color::FromArgb(129, 62, 0), GameSetup::initUndergroundTableSetup);
+		setBlockClickFunctions(airTablePanel);
+		earthTablePanel = gcnew GameTableView(Color::FromArgb(205, 163, 91), Color::FromArgb(0, 143, 0), GameSetup::initEarthTableSetup);
+		setBlockClickFunctions(earthTablePanel);
+		undergroundTablePanel = gcnew GameTableView(Color::FromArgb(220, 28, 11), Color::FromArgb(129, 62, 0), GameSetup::initUndergroundTableSetup);
+		setBlockClickFunctions(undergroundTablePanel);
+
 		gameGrid->Controls->Add(airTablePanel);
 		gameGrid->Controls->Add(earthTablePanel);
 		gameGrid->Controls->Add(undergroundTablePanel);
-
         tables[0] = airTablePanel;
-        tables[1] = earthTablePanel;
+		tables[1] = earthTablePanel;
         tables[2] = undergroundTablePanel;
-
-        tables[currentTable]->Visible = true;
+		tables[currentTable]->Visible = true;
 	}
 
     private: System::Void upButton_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -167,13 +172,25 @@ private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 	private: System::Void downButton_Click(System::Object^ sender, System::EventArgs^ e) {
 		tables[currentTable]->Visible = false;
 		currentTable = (currentTable + 1) % 3;
-		tables[currentTable]->Visible = true;
+		tables[currentTable]->Visible = true; 
+	}
+	private:System::Void table_block_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	}
-	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {	}
-	private: System::Void tableLayoutPanel2_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	private:void setBlockClickFunctions(System::Windows::Forms::TableLayoutPanel^ current) {
+		for (int i = 0; i < current->RowCount; i++)
+		{
+			for (int j = 0; j < current->ColumnCount; j++)
+			{
+				current->GetControlFromPosition(j, i)->Click += gcnew System::EventHandler(this, &Form1::generalBlockClickFunction);
+			}
+		}
+
 	}
-    private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-    }
+	
+	private:void generalBlockClickFunction(System::Object^ sender, System::EventArgs^ e) {
+		System::Windows::Forms::Label^ apelant = (System::Windows::Forms::Label^)sender;
+		apelant->BackColor = Color::FromArgb(0, 0, 0);
+	}
 };
 }

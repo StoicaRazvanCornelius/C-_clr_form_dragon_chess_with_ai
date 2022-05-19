@@ -134,6 +134,8 @@
     <ClInclude Include="Form1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="GameLogic.h" />
+    <ClInclude Include="GameModel.h" />
     <ClInclude Include="GameSetup.h" />
     <ClInclude Include="GameTableView.h" />
     <ClInclude Include="pch.h" />
@@ -144,6 +146,8 @@
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="Form1.cpp" />
+    <ClCompile Include="GameLogic.cpp" />
+    <ClCompile Include="GameModel.cpp" />
     <ClCompile Include="GameSetup.cpp" />
     <ClCompile Include="GameTableView.cpp" />
     <ClCompile Include="pch.cpp">

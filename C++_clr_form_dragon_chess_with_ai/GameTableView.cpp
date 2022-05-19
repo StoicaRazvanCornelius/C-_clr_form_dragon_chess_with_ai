@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "GameTableView.h"
+#include "Form1.h"
 
 GameTableView::GameTableView(Color white, Color black, char initPosition[8][12])
 {
@@ -64,6 +65,7 @@ void GameTableView::DisplayCells(Color white, Color black, char initPosition[8][
             else tmp->SetBackgroundColor(black);
             tmp->SetForegroundColor(Color::White);
             this->Controls->Add(tmp);
+            
         }
     }
 }
