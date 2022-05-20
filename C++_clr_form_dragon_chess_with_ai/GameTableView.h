@@ -8,9 +8,9 @@ using namespace System::Drawing;
 ref class GameTableView : public TableLayoutPanel
 {
 public:
-	GameTableView(Color white, Color black, char initPosition[8][12]);
+	GameTableView(Color white, Color black, char initPosition[8][12], int tableNumber);
 
 private:
-	void DisplayCells(Color white, Color black, char initPosition[8][12]);
+	void DisplayCells(Color white, Color black, char initPosition[8][12], int tableNumber);
 };
 
