@@ -147,12 +147,9 @@ namespace CppCLRWinFormsProject {
 
 private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 		this->gameLogic= (gcnew GameLogic());
-		airTablePanel = gcnew GameTableView(Color::FromArgb(236, 236, 236), Color::FromArgb(98, 178, 255), GameSetup::initAirTableSetup);
-		setBlockClickFunctions(airTablePanel);
-		earthTablePanel = gcnew GameTableView(Color::FromArgb(205, 163, 91), Color::FromArgb(0, 143, 0), GameSetup::initEarthTableSetup);
-		setBlockClickFunctions(earthTablePanel);
-		undergroundTablePanel = gcnew GameTableView(Color::FromArgb(220, 28, 11), Color::FromArgb(129, 62, 0), GameSetup::initUndergroundTableSetup);
-		setBlockClickFunctions(undergroundTablePanel);
+		airTablePanel = gcnew GameTableView(Color::FromArgb(236, 236, 236), Color::FromArgb(98, 178, 255), GameSetup::initAirTableSetup, 0);
+		earthTablePanel = gcnew GameTableView(Color::FromArgb(205, 163, 91), Color::FromArgb(0, 143, 0), GameSetup::initEarthTableSetup, 1);
+		undergroundTablePanel = gcnew GameTableView(Color::FromArgb(220, 28, 11), Color::FromArgb(129, 62, 0), GameSetup::initUndergroundTableSetup, 2);
 
 		gameGrid->Controls->Add(airTablePanel);
 		gameGrid->Controls->Add(earthTablePanel);
@@ -173,24 +170,6 @@ private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 		tables[currentTable]->Visible = false;
 		currentTable = (currentTable + 1) % 3;
 		tables[currentTable]->Visible = true; 
-	}
-	private:System::Void table_block_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	}
-	private:void setBlockClickFunctions(System::Windows::Forms::TableLayoutPanel^ current) {
-		for (int i = 0; i < current->RowCount; i++)
-		{
-			for (int j = 0; j < current->ColumnCount; j++)
-			{
-				current->GetControlFromPosition(j, i)->Click += gcnew System::EventHandler(this, &Form1::generalBlockClickFunction);
-			}
-		}
-
-	}
-	
-	private:void generalBlockClickFunction(System::Object^ sender, System::EventArgs^ e) {
-		System::Windows::Forms::Label^ apelant = (System::Windows::Forms::Label^)sender;
-		apelant->BackColor = Color::FromArgb(0, 0, 0);
 	}
 };
 }

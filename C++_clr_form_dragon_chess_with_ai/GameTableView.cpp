@@ -2,7 +2,7 @@
 #include "GameTableView.h"
 #include "Form1.h"
 
-GameTableView::GameTableView(Color white, Color black, char initPosition[8][12])
+GameTableView::GameTableView(Color white, Color black, char initPosition[8][12], int tableNumber)
 {
     this->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
         | System::Windows::Forms::AnchorStyles::Left)
@@ -53,19 +53,18 @@ GameTableView::GameTableView(Color white, Color black, char initPosition[8][12])
     this->TabIndex = 0;
     this->Visible = false;
 
-    DisplayCells(white, black, initPosition);
+    DisplayCells(white, black, initPosition, tableNumber);
 }
 
-void GameTableView::DisplayCells(Color white, Color black, char initPosition[8][12])
+void GameTableView::DisplayCells(Color white, Color black, char initPosition[8][12], int tableNumber)
 {
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 12; j++) {
-            Cell^ tmp = gcnew Cell(initPosition[i][j]);
+            Cell^ tmp = gcnew Cell(i, j, 1, initPosition[i][j]);
             if ((i + j) % 2 == 0) tmp->SetBackgroundColor(white);
             else tmp->SetBackgroundColor(black);
             tmp->SetForegroundColor(Color::White);
             this->Controls->Add(tmp);
-            
         }
     }
 }
