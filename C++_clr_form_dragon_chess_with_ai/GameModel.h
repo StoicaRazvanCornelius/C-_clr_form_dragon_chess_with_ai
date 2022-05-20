@@ -1,7 +1,13 @@
 #pragma once
-ref class GameModel
+#include "Piece.h"
+
+class GameModel
 {
 public:
-	GameModel();
+	static Piece* currentSelectedPiece;
+	static Piece* airTable[8][12];
+	static Piece* earthTable[8][12];
+	static Piece* undergroundTable[8][12];
+
 };
 

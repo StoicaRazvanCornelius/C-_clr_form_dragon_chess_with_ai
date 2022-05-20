@@ -1,7 +1,8 @@
 #include "pch.h"
 #include "GameLogic.h"
+#include "GameModel.h"
 
 GameLogic::GameLogic()
 {
-	//throw gcnew System::NotImplementedException();
+	GameModel myModel;
 }
