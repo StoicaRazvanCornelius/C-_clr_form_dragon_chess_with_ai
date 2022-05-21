@@ -34,6 +34,13 @@ public:
 			{
 				possibleMoves.push_back(Move(2, x, y));
 			}
+			for (int i = 0; i < 12; i+2)
+			{
+				if (GameModel::earthTable[2][i] == NULL)
+				{
+					possibleMoves.push_back(Move(1, x, y));
+				}
+			}
 		default:
 			break;
 		}
