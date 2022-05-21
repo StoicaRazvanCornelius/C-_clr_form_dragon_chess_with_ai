@@ -1,5 +1,8 @@
 #include "pch.h"
 #include "Cell.h"
+#include "Piece.h"
+#include "Slyph.h"
+#include "Form1.h"
 
 Cell::Cell(int x, int y, int tableNumber, char value)
 {
@@ -41,7 +44,13 @@ int Cell::GetTableNumber()
     return this->tableNumber;
 }
 
-void Cell::GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ e) {
-    Label^ selectedLabel = (Label^) sender;
-    selectedLabel->BackColor = Color::FromArgb(0, 0, 0);
+void Cell::GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ e)
+{
+    Cell^ selectedCell = (Cell^)sender;
+    Piece* slyph = new Slyph();
+    list<tableRelated::Move>* possbileMoves = slyph->getPossibleMoves(3, 0, 0);
+    for (auto it = possbileMoves->begin(); it != possbileMoves->end(); ++it) {
+        //CppCLRWinFormsProject::Form1::tables[it->table]->
+        selectedCell->Text += "\n" + it->table + " " + it->x + " " + it->y;
+    }
 }

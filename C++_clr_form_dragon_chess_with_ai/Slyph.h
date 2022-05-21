@@ -4,43 +4,48 @@
 
 using namespace std;
 class Slyph :
-    public Piece
+	public Piece
 {
 	color myColor;
 public:
 
-	list<Move> getPossibleMoves(int table, int x, int y)
+	list<tableRelated::Move>* getPossibleMoves(int table, int x, int y)
 	{
-		list<Move> possibleMoves = list<Move>();
-		
+		list<tableRelated::Move>* possibleMoves = new list<tableRelated::Move>();
+
 		switch (table)
 		{
 		case 1:
-			
-			if (GameModel::earthTable[x][y]!= NULL && GameModel::earthTable[x][y]->getColor() != myColor)
+
+			if (GameModel::earthTable[x][y] != NULL && GameModel::earthTable[x][y]->getColor() != myColor)
 			{
-				possibleMoves.push_back(Move(1, x, y));
+				possibleMoves->push_back(tableRelated::Move(1, x, y));
 			}
-			if (GameModel::airTable[x+1][y+1] == NULL)
+			if (GameModel::airTable[x + 1][y + 1] == NULL)
 			{
-				possibleMoves.push_back(Move(1, x+1, y));
+				possibleMoves->push_back(tableRelated::Move(1, x + 1, y));
 			}
 			if (GameModel::airTable[x - 1][y + 1] == NULL)
 			{
-				possibleMoves.push_back(Move(1, x-1, y+1));
+				possibleMoves->push_back(tableRelated::Move(1, x - 1, y + 1));
 			}
 		case 2:
 			if (GameModel::earthTable[x][y] == NULL)
 			{
-				possibleMoves.push_back(Move(2, x, y));
+				possibleMoves->push_back(tableRelated::Move(2, x, y));
 			}
-			for (int i = 0; i < 12; i+2)
+			for (int i = 0; i < 12; i + 2)
 			{
 				if (GameModel::earthTable[2][i] == NULL)
 				{
-					possibleMoves.push_back(Move(1, x, y));
+					possibleMoves->push_back(tableRelated::Move(1, x, y));
 				}
 			}
+		case 3:
+			possibleMoves->push_back(tableRelated::Move(3, 3, 6));
+			possibleMoves->push_back(tableRelated::Move(3, 3, 6));
+			possibleMoves->push_back(tableRelated::Move(3, 4, 5));
+			possibleMoves->push_back(tableRelated::Move(3, 4, 5));
 		default:
 			break;
 		}

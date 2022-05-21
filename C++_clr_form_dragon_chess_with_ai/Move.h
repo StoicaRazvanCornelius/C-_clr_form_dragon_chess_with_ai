@@ -1,4 +1,5 @@
 #pragma once
+namespace tableRelated {
 class Move
 {
 
@@ -9,3 +10,5 @@ public:
 	int y;
 };
 
+
+}

@@ -47,7 +47,7 @@ namespace CppCLRWinFormsProject {
 		/// Required designer variable.
 		/// </summary>
 	System::ComponentModel::Container^ components;
-    private: array<TableLayoutPanel^>^ tables = gcnew array<TableLayoutPanel^>(3);
+    public: static array<GameTableView^>^ tables = gcnew array<GameTableView^>(3);
     private: int currentTable = 1;
     private: System::Windows::Forms::Button^ upButton;
     private: System::Windows::Forms::Panel^ controlPanel;
