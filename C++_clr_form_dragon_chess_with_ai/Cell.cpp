@@ -19,6 +19,11 @@ Cell::Cell(int x, int y, int tableNumber, char value)
         static_cast<System::Byte>(0)));
 }
 
+void Cell::PaintCell()
+{
+    throw gcnew System::NotImplementedException();
+}
+
 void Cell::SetBackgroundColor(Color color)
 {
     this->BackColor = color;
@@ -47,10 +52,18 @@ int Cell::GetTableNumber()
 void Cell::GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ e)
 {
     Cell^ selectedCell = (Cell^)sender;
-    Piece* slyph = new Slyph();
-    list<tableRelated::Move>* possbileMoves = slyph->getPossibleMoves(3, 0, 0);
-    for (auto it = possbileMoves->begin(); it != possbileMoves->end(); ++it) {
-        //CppCLRWinFormsProject::Form1::tables[it->table]->
-        selectedCell->Text += "\n" + it->table + " " + it->x + " " + it->y;
+    GameLogic * gameLogic = new GameLogic(); 
+
+    list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(this->tableNumber, this->x, this->y);
+    if (possibleMoves != NULL) 
+    {
+        CppCLRWinFormsProject::Form1::DisplayPossibleMoves(possibleMoves);
     }
+
+    //Piece* slyph = new Slyph();
+    //list<tableRelated::Move>* possbileMoves = slyph->getPossibleMoves(3, 0, 0);
+    //for (auto it = possbileMoves->begin(); it != possbileMoves->end(); ++it) {
+        //CppCLRWinFormsProject::Form1::tables[it->table]->
+    //    selectedCell->Text += "\n" + it->table + " " + it->x + " " + it->y;
+    //}
 }

@@ -13,6 +13,7 @@ private:
 
 public:
 	Cell(int x, int y, int tableNumber, char value);
+	void PaintCell();
 	
 	void SetBackgroundColor(Color color);
 	void SetForegroundColor(Color color);
