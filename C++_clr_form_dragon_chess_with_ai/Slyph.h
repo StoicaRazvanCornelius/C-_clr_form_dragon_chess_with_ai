@@ -47,6 +47,7 @@ public:
 			possibleMoves->push_back(tableRelated::Move(3, 4, 5));
 			possibleMoves->push_back(tableRelated::Move(3, 4, 5));
 		default:
+
 			break;
 		}
 		return possibleMoves;
