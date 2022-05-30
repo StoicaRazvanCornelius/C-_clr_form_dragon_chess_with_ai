@@ -6,7 +6,7 @@ GameLogic::GameLogic()
 {
 }
 
-list<tableRelated::Move>* GameLogic::GetMoves(int table, int x, int y)
+list<tableRelated::Move>* GameLogic::GetMoves(int table, int y, int x)
 {
 	Piece* currentPiece = GetPiece(table, x, y);
 	if (currentPiece != NULL) {
@@ -19,22 +19,25 @@ Piece* GameLogic::GetPiece(int table, int x, int y)
 {
 	switch (table)
 	{
-	case 0:
-		return GameState::airTable[x][y];
-		break;
 	case 1:
-		return GameState::earthTable[x][y];
-		break;
+		return GameState::airTable[y][x];
 	case 2:
-		return GameState::undergroundTable[x][y];
-		break;
+		return GameState::earthTable[y][x];
+	case 3:
+		return GameState::undergroundTable[y][x];
 	default:
 		return NULL;
-		break;
 	}
 }
 
 bool GameLogic::isMoveValid(int table, int x, int y, Piece* pieceToValidate)
 {
+	return false;
+}
+
+bool GameLogic::possibleMove(int table, int y, int x)
+{
+	if (table <=3 && table >0 && y>=0 && y<=7 && x >= 0 && x <= 11)
+		return true;
 	return false;
 }

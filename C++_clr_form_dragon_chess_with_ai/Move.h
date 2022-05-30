@@ -5,7 +5,7 @@ class Move
 
 public:
 	Move();
-	Move(int table, int x, int y);
+	Move(int table, int y, int x);
 	int table;
 	int x;
 	int y;

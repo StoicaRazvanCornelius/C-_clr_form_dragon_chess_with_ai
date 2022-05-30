@@ -4,7 +4,7 @@
 #include "Slyph.h"
 #include "Form1.h"
 
-Cell::Cell(int x, int y, int tableNumber, char value)
+Cell::Cell(int y, int x, int tableNumber, char value)
 {
     this->x = x;
     this->y = y;
