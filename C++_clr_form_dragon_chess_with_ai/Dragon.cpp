@@ -9,7 +9,7 @@ Dragon::Dragon(color pieceColor) : Piece(pieceColor)
 }
 
 
-list<tableRelated::Move>* Dragon::getPossibleMoves(int table, int y, int x)
+list<tableRelated::Move>* Dragon::getPossibleMoves(int table, int x, int y)
 {
 	list<tableRelated::Move>* possibleMoves = new list<tableRelated::Move>();
 	tableRelated::Move* currentMove = new tableRelated::Move();
@@ -85,11 +85,6 @@ list<tableRelated::Move>* Dragon::getPossibleMoves(int table, int y, int x)
 
 	delete currentMove;
 	return possibleMoves;
-}
-
-color Dragon::getColor()
-{
-	return this->pieceColor;
 }
 
 int Dragon::getPrice()

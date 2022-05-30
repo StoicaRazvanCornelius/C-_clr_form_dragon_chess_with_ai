@@ -5,9 +5,7 @@ class Dragon :
 {
 public:
 	Dragon(color pieceColor);
-	list<tableRelated::Move>* getPossibleMoves(int table, int y, int x);
-	color getColor();
+	list<tableRelated::Move>* getPossibleMoves(int table, int x, int y);
 	int getPrice();
-
 };
 

@@ -6,7 +6,7 @@ class Slyph : public Piece
 {
 public:
 	Slyph(color pieceColor);
-	list<tableRelated::Move>* getPossibleMoves(int table, int y, int x);
+	list<tableRelated::Move>* getPossibleMoves(int table, int x, int y);
 	int getPrice();
 };
 

@@ -71,7 +71,7 @@ void GameTableView::DisplayCells(Color white, Color black, char initPosition[8][
 {
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 12; j++) {
-            Cell^ tmp = gcnew Cell(i, j, tableNumber, initPosition[i][j]);
+            Cell^ tmp = gcnew Cell(j, i, tableNumber, initPosition[i][j]);
             if ((i + j) % 2 == 0) tmp->SetBackgroundColor(white);
             else tmp->SetBackgroundColor(black);
             tmp->SetForegroundColor(Color::White);

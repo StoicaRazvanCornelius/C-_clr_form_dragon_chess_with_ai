@@ -4,7 +4,7 @@
 #include "Slyph.h"
 #include "Form1.h"
 
-Cell::Cell(int y, int x, int tableNumber, char value)
+Cell::Cell(int x, int y, int tableNumber, char value)
 {
     this->x = x;
     this->y = y;
@@ -49,7 +49,7 @@ void Cell::GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ 
     Cell^ selectedCell = (Cell^)sender;
     GameLogic * gameLogic = new GameLogic();
     Piece* currentClickedPiece = gameLogic->GetPiece(this->GetTableNumber(), this->GetX(), this->GetY());
-    
+
     if (currentTable == selectedCell->GetTableNumber() && currentX == selectedCell->GetX() && currentY == selectedCell->GetY())
     {
         MessageBox::Show("click 1");
@@ -65,6 +65,7 @@ void Cell::GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ 
         currentX = selectedCell->GetX();
         currentY = selectedCell->GetY();
 
+        MessageBox::Show(tableNumber + " x: " + x + " y: " + y);
         list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(this->tableNumber, this->x, this->y);
         if (possibleMoves != NULL)
         {

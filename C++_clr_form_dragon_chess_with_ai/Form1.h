@@ -48,8 +48,8 @@ namespace CppCLRWinFormsProject {
 		/// Required designer variable.
 		/// </summary>
 	System::ComponentModel::Container^ components;
-	public: static cli::array<GameTableView^>^ tables = gcnew cli::array<GameTableView^>(3);
-    private: int currentTable = 1;
+	public: static cli::array<GameTableView^>^ tables = gcnew cli::array<GameTableView^>(4);
+    private: int currentTable = 2;
     private: System::Windows::Forms::Button^ upButton;
     private: System::Windows::Forms::Panel^ controlPanel;
     private: System::Windows::Forms::Button^ downButton;
@@ -147,43 +147,43 @@ namespace CppCLRWinFormsProject {
 		}
 
 private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
-		airTablePanel = gcnew GameTableView(Constants::airTableWhite, Constants::airTableBlack, GameSetup::initAirTableSetup, 0);
-		earthTablePanel = gcnew GameTableView(Constants::earthTableWhite, Constants::earthTableBlack, GameSetup::initEarthTableSetup, 1);
-		undergroundTablePanel = gcnew GameTableView(Constants::undergroundTableWhite, Constants::undergroundTableBlack, GameSetup::initUndergroundTableSetup, 2);
+		airTablePanel = gcnew GameTableView(Constants::airTableWhite, Constants::airTableBlack, GameSetup::initAirTableSetup, 1);
+		earthTablePanel = gcnew GameTableView(Constants::earthTableWhite, Constants::earthTableBlack, GameSetup::initEarthTableSetup, 2);
+		undergroundTablePanel = gcnew GameTableView(Constants::undergroundTableWhite, Constants::undergroundTableBlack, GameSetup::initUndergroundTableSetup, 3);
 
 		gameGrid->Controls->Add(airTablePanel);
 		gameGrid->Controls->Add(earthTablePanel);
 		gameGrid->Controls->Add(undergroundTablePanel);
-        tables[0] = airTablePanel;
-		tables[1] = earthTablePanel;
-        tables[2] = undergroundTablePanel;
+        tables[1] = airTablePanel;
+		tables[2] = earthTablePanel;
+        tables[3] = undergroundTablePanel;
 		tables[currentTable]->Visible = true;
 	}
 
     private: System::Void upButton_Click(System::Object^ sender, System::EventArgs^ e) {
         tables[currentTable]->Visible = false;
         currentTable--;
-        if (currentTable < 0) currentTable = 2;
+        if (currentTable < 1) currentTable = 3;
         tables[currentTable]->Visible = true;
     }
 	private: System::Void downButton_Click(System::Object^ sender, System::EventArgs^ e) {
 		tables[currentTable]->Visible = false;
-		currentTable = (currentTable + 1) % 3;
+		currentTable = (currentTable + 1) % 3 + 1;
 		tables[currentTable]->Visible = true;
 	}
 
 	public: static Void DisplayPossibleMoves(std::list<tableRelated::Move>* possibleMoves)
 	{
 		for (auto it = possibleMoves->begin(); it != possibleMoves->end(); it++) {
-			MessageBox::Show(it->table - 1 + " column: " + it->x + " row: " + it->y);
-			((Cell^)tables[it->table - 1]->GetControlFromPosition(it->x, it->y))->BackColor = Drawing::Color::Red;
+			MessageBox::Show(it->table + " column: " + it->x + " row: " + it->y);
+			((Cell^)tables[it->table]->GetControlFromPosition(it->x, it->y))->BackColor = Drawing::Color::Red;
 		}
 	}
 	public: static Void ClearDisplayedMoves()
 	{
-		tables[0]->ClearCells(Constants::airTableWhite, Constants::airTableBlack);
-		tables[1]->ClearCells(Constants::earthTableWhite, Constants::earthTableBlack);
-		tables[2]->ClearCells(Constants::undergroundTableWhite, Constants::undergroundTableBlack);
+		tables[1]->ClearCells(Constants::airTableWhite, Constants::airTableBlack);
+		tables[2]->ClearCells(Constants::earthTableWhite, Constants::earthTableBlack);
+		tables[3]->ClearCells(Constants::undergroundTableWhite, Constants::undergroundTableBlack);
 	}
 };
 }
