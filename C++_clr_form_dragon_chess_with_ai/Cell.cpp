@@ -95,14 +95,16 @@ void Cell::GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ 
         else
         {
             MessageBox::Show("click 5");
-            // validate move
+            list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(currentTable, currentX, currentY);
+            if (gameLogic->isMoveValid(tableNumber, x, y, possibleMoves)) MessageBox::Show("eat");
             // eat it
         }
     }
     else
     {
         MessageBox::Show("click 6");
-        // validate move
+        list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(currentTable, currentX, currentY);
+        if (gameLogic->isMoveValid(tableNumber, x, y, possibleMoves)) MessageBox::Show("move");
         // move piece
     }
 }

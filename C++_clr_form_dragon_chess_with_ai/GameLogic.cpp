@@ -30,8 +30,11 @@ Piece* GameLogic::GetPiece(int table, int x, int y)
 	}
 }
 
-bool GameLogic::isMoveValid(int table, int x, int y, Piece* pieceToValidate)
+bool GameLogic::isMoveValid(int table, int x, int y, list<tableRelated::Move>* possibleMoves)
 {
+	for (auto it = possibleMoves->begin(); it != possibleMoves->end(); it++) {
+		if (it->x == x && it->y == y && it->table == table) return true;
+	}
 	return false;
 }
 
