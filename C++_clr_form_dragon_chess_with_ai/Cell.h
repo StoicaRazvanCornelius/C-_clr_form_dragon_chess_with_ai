@@ -11,9 +11,11 @@ private:
 	int tableNumber;
 	void GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ e);
 
+	static int currentTable = -1;
+	static int currentX = -1;
+	static int currentY = -1;
 public:
 	Cell(int x, int y, int tableNumber, char value);
-	void PaintCell();
 	
 	void SetBackgroundColor(Color color);
 	void SetForegroundColor(Color color);

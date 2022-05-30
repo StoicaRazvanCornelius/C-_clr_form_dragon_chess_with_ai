@@ -5,3 +5,8 @@ Piece::Piece(color pieceColor)
 {
 	this->pieceColor = pieceColor;
 }
+
+color Piece::getColor()
+{
+	return pieceColor;
+}

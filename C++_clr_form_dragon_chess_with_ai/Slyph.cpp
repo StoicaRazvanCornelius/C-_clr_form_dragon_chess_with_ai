@@ -48,11 +48,6 @@ list<tableRelated::Move>* Slyph::getPossibleMoves(int table, int x, int y)
 	return possibleMoves;
 }
 
-color Slyph::getColor()
-{
-	return this->pieceColor;
-}
-
 int Slyph::getPrice()
 {
 	return 1;

@@ -9,11 +9,9 @@ ref class GameTableView : public TableLayoutPanel
 {
 public:
 	GameTableView(Color white, Color black, char initPosition[8][12], int tableNumber);
+	void ClearCells(Color white, Color black);
 
 private:
 	void DisplayCells(Color white, Color black, char initPosition[8][12], int tableNumber);
-	static int currentTable;
-	static int currentX;
-	static int currentY;
 };
 

@@ -19,11 +19,6 @@ Cell::Cell(int x, int y, int tableNumber, char value)
         static_cast<System::Byte>(0)));
 }
 
-void Cell::PaintCell()
-{
-    throw gcnew System::NotImplementedException();
-}
-
 void Cell::SetBackgroundColor(Color color)
 {
     this->BackColor = color;
@@ -52,18 +47,61 @@ int Cell::GetTableNumber()
 void Cell::GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ e)
 {
     Cell^ selectedCell = (Cell^)sender;
-    GameLogic * gameLogic = new GameLogic(); 
-
-    list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(this->tableNumber, this->x, this->y);
-    if (possibleMoves != NULL) 
+    GameLogic * gameLogic = new GameLogic();
+    Piece* currentClickedPiece = gameLogic->GetPiece(this->GetTableNumber(), this->GetX(), this->GetY());
+    
+    if (currentTable == selectedCell->GetTableNumber() && currentX == selectedCell->GetX() && currentY == selectedCell->GetY())
     {
-        CppCLRWinFormsProject::Form1::DisplayPossibleMoves(possibleMoves);
+        MessageBox::Show("click 1");
+        CppCLRWinFormsProject::Form1::ClearDisplayedMoves();
+        currentTable = -1;
+        currentX = -1;
+        currentY = -1;
     }
+    else if (currentTable == -1 && currentX == -1 && currentY == -1 && currentClickedPiece != NULL && currentClickedPiece->getColor() == GameState::currentColor)
+    {
+        MessageBox::Show("click 2");
+        currentTable = selectedCell->GetTableNumber();
+        currentX = selectedCell->GetX();
+        currentY = selectedCell->GetY();
 
-    //Piece* slyph = new Slyph();
-    //list<tableRelated::Move>* possbileMoves = slyph->getPossibleMoves(3, 0, 0);
-    //for (auto it = possbileMoves->begin(); it != possbileMoves->end(); ++it) {
-        //CppCLRWinFormsProject::Form1::tables[it->table]->
-    //    selectedCell->Text += "\n" + it->table + " " + it->x + " " + it->y;
-    //}
+        list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(this->tableNumber, this->x, this->y);
+        if (possibleMoves != NULL)
+        {
+            CppCLRWinFormsProject::Form1::DisplayPossibleMoves(possibleMoves);
+        }
+        delete possibleMoves;
+    }
+    else if (currentClickedPiece != NULL)
+    {
+        MessageBox::Show("click 3");
+        Piece* currentSelectedPiece = gameLogic->GetPiece(currentTable, currentX, currentY);
+        if (currentSelectedPiece->getColor() == currentClickedPiece->getColor())
+        {
+            MessageBox::Show("click 4");
+            CppCLRWinFormsProject::Form1::ClearDisplayedMoves();
+            currentTable = selectedCell->GetTableNumber();
+            currentX = selectedCell->GetX();
+            currentY = selectedCell->GetY();
+
+            list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(this->tableNumber, this->x, this->y);
+            if (possibleMoves != NULL)
+            {
+                CppCLRWinFormsProject::Form1::DisplayPossibleMoves(possibleMoves);
+            }
+            delete possibleMoves;
+        }
+        else
+        {
+            MessageBox::Show("click 5");
+            // validate move
+            // eat it
+        }
+    }
+    else
+    {
+        MessageBox::Show("click 6");
+        // validate move
+        // move piece
+    }
 }

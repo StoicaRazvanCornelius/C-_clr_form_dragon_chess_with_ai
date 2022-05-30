@@ -3,6 +3,7 @@
 #include "GameSetup.h"
 #include "GameTableView.h"
 #include "GameLogic.h"
+#include "Constants.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -146,9 +147,9 @@ namespace CppCLRWinFormsProject {
 		}
 
 private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
-		airTablePanel = gcnew GameTableView(Color::FromArgb(236, 236, 236), Color::FromArgb(98, 178, 255), GameSetup::initAirTableSetup, 0);
-		earthTablePanel = gcnew GameTableView(Color::FromArgb(205, 163, 91), Color::FromArgb(0, 143, 0), GameSetup::initEarthTableSetup, 1);
-		undergroundTablePanel = gcnew GameTableView(Color::FromArgb(220, 28, 11), Color::FromArgb(129, 62, 0), GameSetup::initUndergroundTableSetup, 2);
+		airTablePanel = gcnew GameTableView(Constants::airTableWhite, Constants::airTableBlack, GameSetup::initAirTableSetup, 0);
+		earthTablePanel = gcnew GameTableView(Constants::earthTableWhite, Constants::earthTableBlack, GameSetup::initEarthTableSetup, 1);
+		undergroundTablePanel = gcnew GameTableView(Constants::undergroundTableWhite, Constants::undergroundTableBlack, GameSetup::initUndergroundTableSetup, 2);
 
 		gameGrid->Controls->Add(airTablePanel);
 		gameGrid->Controls->Add(earthTablePanel);
@@ -168,18 +169,21 @@ private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 	private: System::Void downButton_Click(System::Object^ sender, System::EventArgs^ e) {
 		tables[currentTable]->Visible = false;
 		currentTable = (currentTable + 1) % 3;
-		tables[currentTable]->Visible = true; 
+		tables[currentTable]->Visible = true;
 	}
 
 	public: static Void DisplayPossibleMoves(std::list<tableRelated::Move>* possibleMoves)
 	{
 		for (auto it = possibleMoves->begin(); it != possibleMoves->end(); it++) {
+			MessageBox::Show(it->table - 1 + " column: " + it->x + " row: " + it->y);
 			((Cell^)tables[it->table - 1]->GetControlFromPosition(it->x, it->y))->BackColor = Drawing::Color::Red;
 		}
 	}
 	public: static Void ClearDisplayedMoves()
 	{
-
+		tables[0]->ClearCells(Constants::airTableWhite, Constants::airTableBlack);
+		tables[1]->ClearCells(Constants::earthTableWhite, Constants::earthTableBlack);
+		tables[2]->ClearCells(Constants::undergroundTableWhite, Constants::undergroundTableBlack);
 	}
 };
 }

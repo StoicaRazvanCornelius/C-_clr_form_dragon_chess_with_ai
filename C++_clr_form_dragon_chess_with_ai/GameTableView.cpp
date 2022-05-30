@@ -56,11 +56,22 @@ GameTableView::GameTableView(Color white, Color black, char initPosition[8][12],
     DisplayCells(white, black, initPosition, tableNumber);
 }
 
+void GameTableView::ClearCells(Color white, Color black)
+{
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 12; j++) {
+            Cell ^ tmp = ((Cell^)this->GetControlFromPosition(j, i));
+            if ((i + j) % 2 == 0) tmp->SetBackgroundColor(white);
+            else tmp->SetBackgroundColor(black);
+        }
+    }
+}
+
 void GameTableView::DisplayCells(Color white, Color black, char initPosition[8][12], int tableNumber)
 {
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 12; j++) {
-            Cell^ tmp = gcnew Cell(i, j, 1, initPosition[i][j]);
+            Cell^ tmp = gcnew Cell(i, j, tableNumber, initPosition[i][j]);
             if ((i + j) % 2 == 0) tmp->SetBackgroundColor(white);
             else tmp->SetBackgroundColor(black);
             tmp->SetForegroundColor(Color::White);

@@ -131,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cell.h" />
+    <ClInclude Include="Constants.h" />
     <ClInclude Include="Form1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -149,6 +150,7 @@
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="color.h" />
+    <ClCompile Include="Constants.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="Form1.cpp" />
     <ClCompile Include="GameLogic.cpp" />
