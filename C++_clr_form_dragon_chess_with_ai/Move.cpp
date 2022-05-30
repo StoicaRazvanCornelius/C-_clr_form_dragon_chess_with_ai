@@ -8,7 +8,7 @@ tableRelated::Move::Move()
 	this->y = -1;
 }
 
-tableRelated::Move::Move(int table, int x, int y)
+tableRelated::Move::Move(int table, int y, int x)
 {
 	this->table = table;
 	this->x = x;

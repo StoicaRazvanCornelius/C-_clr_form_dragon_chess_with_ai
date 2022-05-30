@@ -8,5 +8,6 @@ class GameLogic
 public:
 	GameLogic();
 	std::list<tableRelated::Move>* GetMoves(int table, int x, int y);
+	static bool possibleMove(int table, int y, int x);
 };
 

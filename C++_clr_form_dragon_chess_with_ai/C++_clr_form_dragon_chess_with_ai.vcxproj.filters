@@ -59,7 +59,10 @@
     <ClInclude Include="Move.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Pieces.h">
+    <ClInclude Include="Griffin.h">
+      <Filter>Header Files\Pieces</Filter>
+    </ClInclude>
+    <ClInclude Include="Dragon.h">
       <Filter>Header Files\Pieces</Filter>
     </ClInclude>
   </ItemGroup>
@@ -105,6 +108,12 @@
     </ClCompile>
     <ClCompile Include="Move.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Griffin.cpp">
+      <Filter>Source Files\Pieces</Filter>
+    </ClCompile>
+    <ClCompile Include="Dragon.cpp">
+      <Filter>Source Files\Pieces</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -4,7 +4,7 @@
 #include "Slyph.h"
 #include "Form1.h"
 
-Cell::Cell(int x, int y, int tableNumber, char value)
+Cell::Cell(int y, int x, int tableNumber, char value)
 {
     this->x = x;
     this->y = y;
@@ -53,17 +53,9 @@ void Cell::GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ 
 {
     Cell^ selectedCell = (Cell^)sender;
     GameLogic * gameLogic = new GameLogic(); 
-
-    list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(this->tableNumber, this->x, this->y);
+    list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(this->tableNumber, this->y, this->x);
     if (possibleMoves != NULL) 
     {
         CppCLRWinFormsProject::Form1::DisplayPossibleMoves(possibleMoves);
     }
-
-    //Piece* slyph = new Slyph();
-    //list<tableRelated::Move>* possbileMoves = slyph->getPossibleMoves(3, 0, 0);
-    //for (auto it = possbileMoves->begin(); it != possbileMoves->end(); ++it) {
-        //CppCLRWinFormsProject::Form1::tables[it->table]->
-    //    selectedCell->Text += "\n" + it->table + " " + it->x + " " + it->y;
-    //}
 }
