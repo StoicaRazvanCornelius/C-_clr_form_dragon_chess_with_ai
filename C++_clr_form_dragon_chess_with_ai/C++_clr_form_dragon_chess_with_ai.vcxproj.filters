@@ -47,7 +47,7 @@
     <ClInclude Include="GameLogic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameModel.h">
+    <ClInclude Include="GameState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Slyph.h">
@@ -58,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="Move.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Pieces.h">
+      <Filter>Header Files\Pieces</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -88,7 +91,7 @@
     <ClCompile Include="GameLogic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameModel.cpp">
+    <ClCompile Include="GameState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Slyph.cpp">

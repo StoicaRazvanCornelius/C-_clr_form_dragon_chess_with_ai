@@ -12,5 +12,8 @@ public:
 
 private:
 	void DisplayCells(Color white, Color black, char initPosition[8][12], int tableNumber);
+	static int currentTable;
+	static int currentX;
+	static int currentY;
 };
 
