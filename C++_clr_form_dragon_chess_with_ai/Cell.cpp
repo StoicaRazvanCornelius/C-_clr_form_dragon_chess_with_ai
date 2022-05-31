@@ -103,8 +103,11 @@ void Cell::GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ 
     else
     {
         MessageBox::Show("click 6");
-        list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(currentTable, currentX, currentY);
-        if (gameLogic->isMoveValid(tableNumber, x, y, possibleMoves)) MessageBox::Show("move");
+        if (currentTable != -1 && currentX != -1 && currentY != -1)
+        {
+            list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(currentTable, currentX, currentY);
+            if (gameLogic->isMoveValid(tableNumber, x, y, possibleMoves)) MessageBox::Show("move");
+        }
         // move piece
     }
 }
