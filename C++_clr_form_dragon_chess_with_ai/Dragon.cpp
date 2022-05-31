@@ -20,14 +20,14 @@ list<tableRelated::Move>* Dragon::getPossibleMoves(int table, int x, int y)
 		currentMove->x = x + 1;
 		currentMove->y = y;
 		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && (GameState::airTable[currentMove->y][currentMove->x] == NULL || GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor))
-			possibleMoves->push_back(tableRelated::Move(1, currentMove->y, currentMove->x));
+			possibleMoves->push_back(tableRelated::Move(1, currentMove->y, currentMove->x, moveType::move));
 		//x++,y--
 		currentMove->x = x+1;
 		currentMove->y = y-1;
 		while (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 		{
 			if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && (GameState::airTable[currentMove->y][currentMove->x] == NULL || GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor))
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->y, currentMove->x));
+				possibleMoves->push_back(tableRelated::Move(1, currentMove->y, currentMove->x, moveType::move));
 			currentMove->x--;
 			currentMove->y--;
 		}
@@ -35,14 +35,14 @@ list<tableRelated::Move>* Dragon::getPossibleMoves(int table, int x, int y)
 		currentMove->x = x;
 		currentMove->y = y + 1;
 		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && (GameState::airTable[currentMove->y][currentMove->x] == NULL || GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor))
-			possibleMoves->push_back(tableRelated::Move(1, currentMove->y, currentMove->x));
+			possibleMoves->push_back(tableRelated::Move(1, currentMove->y, currentMove->x, moveType::move));
 		//x--,y--
 		currentMove->x = x - 1;
 		currentMove->y = y - 1;
 		while (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 		{
 			if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && (GameState::airTable[currentMove->y][currentMove->x] == NULL || GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor))
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->y, currentMove->x));
+				possibleMoves->push_back(tableRelated::Move(1, currentMove->y, currentMove->x, moveType::move));
 			currentMove->x--;
 			currentMove->y--;
 		}
@@ -50,14 +50,14 @@ list<tableRelated::Move>* Dragon::getPossibleMoves(int table, int x, int y)
 		currentMove->x = x - 1;
 		currentMove->y = y;
 		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && (GameState::airTable[currentMove->y][currentMove->x] == NULL || GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor))
-			possibleMoves->push_back(tableRelated::Move(1, currentMove->y, currentMove->x));
+			possibleMoves->push_back(tableRelated::Move(1, currentMove->y, currentMove->x, moveType::move));
 		//x--,y++
 		currentMove->x = x - 1;
 		currentMove->y = y + 1;
 		while (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 		{
 			if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && (GameState::airTable[currentMove->y][currentMove->x] == NULL || GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor))
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->y, currentMove->x));
+				possibleMoves->push_back(tableRelated::Move(1, currentMove->y, currentMove->x, moveType::move));
 			currentMove->x--;
 			currentMove->y++;
 		}
@@ -65,14 +65,14 @@ list<tableRelated::Move>* Dragon::getPossibleMoves(int table, int x, int y)
 		currentMove->x = x;
 		currentMove->y = y+1;
 		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && (GameState::airTable[currentMove->y][currentMove->x] == NULL || GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor))
-			possibleMoves->push_back(tableRelated::Move(1, currentMove->y, currentMove->x));
+			possibleMoves->push_back(tableRelated::Move(1, currentMove->y, currentMove->x, moveType::move));
 		//x++,y++
 		currentMove->x = x + 1;
 		currentMove->y = y +1;
 		while (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 		{
 			if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && (GameState::airTable[currentMove->y][currentMove->x] == NULL || GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor))
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->y, currentMove->x));
+				possibleMoves->push_back(tableRelated::Move(1, currentMove->y, currentMove->x, moveType::move));
 			currentMove->x--;
 			currentMove->y--;
 		}

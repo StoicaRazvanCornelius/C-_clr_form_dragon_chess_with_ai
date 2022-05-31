@@ -49,7 +49,7 @@ void Cell::GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ 
     Cell^ selectedCell = (Cell^)sender;
     GameLogic * gameLogic = new GameLogic();
     Piece* currentClickedPiece = gameLogic->GetPiece(this->GetTableNumber(), this->GetX(), this->GetY());
-
+    
     if (currentTable == selectedCell->GetTableNumber() && currentX == selectedCell->GetX() && currentY == selectedCell->GetY())
     {
         MessageBox::Show("click 1");
@@ -103,8 +103,8 @@ void Cell::GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ 
     else
     {
         MessageBox::Show("click 6");
-        list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(currentTable, currentX, currentY);
-        if (gameLogic->isMoveValid(tableNumber, x, y, possibleMoves)) MessageBox::Show("move");
+        //list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(currentTable, currentX, currentY);
+        //if (gameLogic->isMoveValid(tableNumber, x, y, possibleMoves)) MessageBox::Show("move");
         // move piece
     }
 }
