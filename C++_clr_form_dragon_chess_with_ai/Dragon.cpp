@@ -165,8 +165,43 @@ list<tableRelated::Move>* Dragon::getPossibleMoves(int table, int x, int y)
 			currentMove->x--;
 			currentMove->y--;
 		}
-		break;
-	case 2:
+		//2:
+		currentMove->x = x ;
+		currentMove->y = y;
+		currentMove->table = 2;
+		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && GameState::earthTable[currentMove->y][currentMove->x] != NULL && GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+		{
+			possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture_afar));
+		}
+		currentMove->x = x + 1;
+		currentMove->y = y;
+		currentMove->table = 2;
+		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && GameState::earthTable[currentMove->y][currentMove->x] != NULL && GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+		{
+			possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture_afar));
+		}
+		currentMove->x = x;
+		currentMove->y = y - 1;
+		currentMove->table = 2;
+		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && GameState::earthTable[currentMove->y][currentMove->x] != NULL && GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+		{
+			possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture_afar));
+		}
+		currentMove->x = x - 1;
+		currentMove->y = y;
+		currentMove->table = 2;
+		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && GameState::earthTable[currentMove->y][currentMove->x] != NULL && GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+		{
+			possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture_afar));
+		}
+
+		currentMove->x = x;
+		currentMove->y = y + 1;
+		currentMove->table = 2;
+		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && GameState::earthTable[currentMove->y][currentMove->x] != NULL && GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+		{
+			possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture_afar));
+		}
 		break;
 	default:
 		break;
