@@ -77,7 +77,7 @@ void Cell::GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ 
     {
         MessageBox::Show("click 3");
         Piece* currentSelectedPiece = gameLogic->GetPiece(currentTable, currentX, currentY);
-        if (currentSelectedPiece->getColor() == currentClickedPiece->getColor())
+        if (currentSelectedPiece != NULL && currentSelectedPiece->getColor() == currentClickedPiece->getColor())
         {
             MessageBox::Show("click 4");
             CppCLRWinFormsProject::Form1::ClearDisplayedMoves();
@@ -95,8 +95,11 @@ void Cell::GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ 
         else
         {
             MessageBox::Show("click 5");
-            list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(currentTable, currentX, currentY);
-            if (gameLogic->isMoveValid(tableNumber, x, y, possibleMoves)) MessageBox::Show("eat");
+            if (currentTable != -1 && currentX != -1 && currentY != -1)
+            {
+                list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(currentTable, currentX, currentY);
+                if (gameLogic->isMoveValid(tableNumber, x, y, possibleMoves)) MessageBox::Show("eat");
+            }
             // eat it
         }
     }
