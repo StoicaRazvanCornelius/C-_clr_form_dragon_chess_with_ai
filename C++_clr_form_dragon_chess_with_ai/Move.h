@@ -10,6 +10,6 @@ public:
 	int table;
 	int x;
 	int y;
-	moveType my_move_type;
+	moveType type;
 };
 }
