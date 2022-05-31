@@ -49,7 +49,7 @@ void Cell::GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ 
     Cell^ selectedCell = (Cell^)sender;
     GameLogic * gameLogic = new GameLogic();
     Piece* currentClickedPiece = gameLogic->GetPiece(this->GetTableNumber(), this->GetX(), this->GetY());
-
+    
     if (currentTable == selectedCell->GetTableNumber() && currentX == selectedCell->GetX() && currentY == selectedCell->GetY())
     {
         MessageBox::Show("click 1");

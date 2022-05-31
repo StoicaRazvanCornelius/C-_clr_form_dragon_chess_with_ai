@@ -10,14 +10,23 @@ list<tableRelated::Move>* Slyph::getPossibleMoves(int table, int x, int y)
 {
 	
 	list<tableRelated::Move>* possibleMoves = new list<tableRelated::Move>();
+	tableRelated::Move* currentMove = new tableRelated::Move();
+
 	switch (this->pieceColor)
 	{
 	case white:
 		switch (table)
 		{
 		case 1:
-
-			possibleMoves->push_back(tableRelated::Move(2, y, x));
+			currentMove->y = y;
+			currentMove->x = x;
+			currentMove->table = 2;
+			currentMove->my_move_type = moveType::capture;
+			if (GameState::earthTable[y][x] != NULL && GameState::earthTable[y][x]->getColor() != pieceColor)
+			{
+				possibleMoves->push_back(tableRelated::Move(currentMove->table, currentMove->x, currentMove->y,currentMove->my_move_type));
+			}
+			/*
 			possibleMoves->push_back(tableRelated::Move(1, y - 1, x));
 			possibleMoves->push_back(tableRelated::Move(1, y - 1, x + 1));
 			possibleMoves->push_back(tableRelated::Move(1, y - 1, x - 1));
@@ -67,10 +76,10 @@ list<tableRelated::Move>* Slyph::getPossibleMoves(int table, int x, int y)
 
 		case 1:
 
-			possibleMoves->push_back(tableRelated::Move(2, y, x));
-			possibleMoves->push_back(tableRelated::Move(1, y + 1, x));
-			possibleMoves->push_back(tableRelated::Move(1, y + 1, x + 1));
-			possibleMoves->push_back(tableRelated::Move(1, y + 1, x - 1));
+			possibleMoves->push_back(tableRelated::Move(2, y, x,moveType::move));
+			possibleMoves->push_back(tableRelated::Move(1, y + 1, x, moveType::move));
+			possibleMoves->push_back(tableRelated::Move(1, y + 1, x + 1, moveType::move));
+			possibleMoves->push_back(tableRelated::Move(1, y + 1, x - 1, moveType::move));
 		default:
 			break;
 

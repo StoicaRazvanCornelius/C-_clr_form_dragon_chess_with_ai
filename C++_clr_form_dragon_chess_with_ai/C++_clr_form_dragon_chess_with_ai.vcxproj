@@ -141,6 +141,7 @@
     <ClInclude Include="GameSetup.h" />
     <ClInclude Include="GameTableView.h" />
     <ClInclude Include="Griffin.h" />
+    <ClInclude Include="moveType.h" />
     <ClInclude Include="Move.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Piece.h" />
