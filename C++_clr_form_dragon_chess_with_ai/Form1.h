@@ -168,7 +168,7 @@ private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
     }
 	private: System::Void downButton_Click(System::Object^ sender, System::EventArgs^ e) {
 		tables[currentTable]->Visible = false;
-		currentTable = (currentTable + 1) % 3 + 1;
+		currentTable = (currentTable) % 3 + 1;
 		tables[currentTable]->Visible = true;
 	}
 
@@ -176,7 +176,7 @@ private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 	{
 		for (auto it = possibleMoves->begin(); it != possibleMoves->end(); it++) {
 			MessageBox::Show(it->table + " column: " + it->x + " row: " + it->y);
-			((Cell^)tables[it->table]->GetControlFromPosition(it->x, it->y))->BackColor = Drawing::Color::Red;
+			((Cell^)tables[it->table]->GetControlFromPosition(it->x, it->y))->BackColor = Drawing::Color::Yellow;
 		}
 	}
 	public: static Void ClearDisplayedMoves()
@@ -184,6 +184,17 @@ private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 		tables[1]->ClearCells(Constants::airTableWhite, Constants::airTableBlack);
 		tables[2]->ClearCells(Constants::earthTableWhite, Constants::earthTableBlack);
 		tables[3]->ClearCells(Constants::undergroundTableWhite, Constants::undergroundTableBlack);
+	}
+	public: static void MakeMove(int tableOrigin, int xOrigin, int yOrigin, int tableTarget, int xTarget, int yTarget)
+	{
+		Cell^ originCell = ((Cell^)tables[tableOrigin]->GetControlFromPosition(xOrigin, yOrigin));
+		String^ originPiece = originCell->Text;
+		originCell->Text = "";
+		((Cell^)tables[tableTarget]->GetControlFromPosition(xTarget, yTarget))->Text = originPiece;
+
+		GameLogic* gameLogic = new GameLogic();
+		gameLogic->MakeMove(tableOrigin, xOrigin, yOrigin, tableTarget, xTarget, yTarget);
+		delete gameLogic;
 	}
 };
 }

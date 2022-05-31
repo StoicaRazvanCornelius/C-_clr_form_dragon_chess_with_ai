@@ -10,6 +10,8 @@ private:
 	int y;
 	int tableNumber;
 	void GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ e);
+	void SelectCell(Cell^ selectedCell);
+	void UnselectCell();
 
 	static int currentTable = -1;
 	static int currentX = -1;

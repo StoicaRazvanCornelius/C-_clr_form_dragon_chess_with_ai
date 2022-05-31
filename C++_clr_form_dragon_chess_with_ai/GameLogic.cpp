@@ -38,6 +38,27 @@ bool GameLogic::isMoveValid(int table, int x, int y, list<tableRelated::Move>* p
 	return false;
 }
 
+void GameLogic::MakeMove(int tableOrigin, int xOrigin, int yOrigin, int tableTarget, int xTarget, int yTarget)
+{
+	Piece* movingPiece = GetPiece(tableOrigin, xOrigin, yOrigin);
+	SetPiece(tableTarget, xTarget, yTarget, movingPiece);
+}
+
+void GameLogic::SetPiece(int table, int x, int y, Piece* piece)
+{
+	switch (table)
+	{
+	case 1:
+		GameState::airTable[y][x] = piece;
+	case 2:
+		GameState::earthTable[y][x] = piece;
+	case 3:
+		GameState::undergroundTable[y][x] = piece;
+	default:
+		break;
+	}
+}
+
 bool GameLogic::possibleMove(int table, int y, int x)
 {
 	if (table <=3 && table >0 && y>=0 && y<=7 && x >= 0 && x <= 11)

@@ -53,25 +53,12 @@ void Cell::GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ 
     if (currentTable == selectedCell->GetTableNumber() && currentX == selectedCell->GetX() && currentY == selectedCell->GetY())
     {
         MessageBox::Show("click 1");
-        CppCLRWinFormsProject::Form1::ClearDisplayedMoves();
-        currentTable = -1;
-        currentX = -1;
-        currentY = -1;
+        UnselectCell();
     }
     else if (currentTable == -1 && currentX == -1 && currentY == -1 && currentClickedPiece != NULL && currentClickedPiece->getColor() == GameState::currentColor)
     {
         MessageBox::Show("click 2");
-        currentTable = selectedCell->GetTableNumber();
-        currentX = selectedCell->GetX();
-        currentY = selectedCell->GetY();
-
-        MessageBox::Show(tableNumber + " x: " + x + " y: " + y);
-        list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(this->tableNumber, this->x, this->y);
-        if (possibleMoves != NULL)
-        {
-            CppCLRWinFormsProject::Form1::DisplayPossibleMoves(possibleMoves);
-        }
-        delete possibleMoves;
+        SelectCell(selectedCell);
     }
     else if (currentClickedPiece != NULL)
     {
@@ -81,16 +68,7 @@ void Cell::GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ 
         {
             MessageBox::Show("click 4");
             CppCLRWinFormsProject::Form1::ClearDisplayedMoves();
-            currentTable = selectedCell->GetTableNumber();
-            currentX = selectedCell->GetX();
-            currentY = selectedCell->GetY();
-
-            list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(this->tableNumber, this->x, this->y);
-            if (possibleMoves != NULL)
-            {
-                CppCLRWinFormsProject::Form1::DisplayPossibleMoves(possibleMoves);
-            }
-            delete possibleMoves;
+            SelectCell(selectedCell);
         }
         else
         {
@@ -98,9 +76,12 @@ void Cell::GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ 
             if (currentTable != -1 && currentX != -1 && currentY != -1)
             {
                 list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(currentTable, currentX, currentY);
-                if (gameLogic->isMoveValid(tableNumber, x, y, possibleMoves)) MessageBox::Show("eat");
+                if (gameLogic->isMoveValid(tableNumber, x, y, possibleMoves)) 
+                {
+                    CppCLRWinFormsProject::Form1::MakeMove(currentTable, currentX, currentY, this->tableNumber, this->x, this->y);
+                    UnselectCell();
+                }
             }
-            // eat it
         }
     }
     else
@@ -109,8 +90,38 @@ void Cell::GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ 
         if (currentTable != -1 && currentX != -1 && currentY != -1)
         {
             list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(currentTable, currentX, currentY);
-            if (gameLogic->isMoveValid(tableNumber, x, y, possibleMoves)) MessageBox::Show("move");
+            if (gameLogic->isMoveValid(tableNumber, x, y, possibleMoves))
+            {
+                CppCLRWinFormsProject::Form1::MakeMove(currentTable, currentX, currentY, this->tableNumber, this->x, this->y);
+                UnselectCell();
+            }
         }
-        // move piece
     }
+}
+
+void Cell::SelectCell(Cell^ selectedCell)
+{
+    GameLogic* gameLogic = new GameLogic();
+    currentTable = selectedCell->GetTableNumber();
+    currentX = selectedCell->GetX();
+    currentY = selectedCell->GetY();
+
+    selectedCell->SetBackgroundColor(Color::YellowGreen);
+
+    MessageBox::Show("table = " + currentTable + " x: " + currentX + " y: " + currentY);
+    list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(currentTable, currentX, currentY);
+    if (possibleMoves != NULL)
+    {
+        CppCLRWinFormsProject::Form1::DisplayPossibleMoves(possibleMoves);
+    }
+    delete possibleMoves;
+    delete gameLogic;
+}
+
+void Cell::UnselectCell()
+{
+    CppCLRWinFormsProject::Form1::ClearDisplayedMoves();
+    currentTable = -1;
+    currentX = -1;
+    currentY = -1;
 }
