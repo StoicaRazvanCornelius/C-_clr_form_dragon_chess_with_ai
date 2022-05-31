@@ -10,5 +10,7 @@ public:
 	const static Color earthTableBlack = Color::FromArgb(0, 143, 0);
 	const static Color undergroundTableWhite = Color::FromArgb(220, 28, 11);
 	const static Color undergroundTableBlack = Color::FromArgb(129, 62, 0);
+
+	// const static Color currentCell = Color::FromArgb();
 };
 

@@ -20,7 +20,7 @@ list<tableRelated::Move>* Slyph::getPossibleMoves(int table, int x, int y)
 		currentMove->x = x;
 		currentMove->table = 2;
 		currentMove->type = moveType::capture;
-		if (GameLogic::possibleMove(currentMove->table, currentMove->y, currentMove->x) && GameState::earthTable[currentMove->y][currentMove->x] == NULL)
+		if (GameLogic::possibleMove(currentMove->table, currentMove->y, currentMove->x) && GameState::earthTable[currentMove->y][currentMove->x] != NULL)
 		{
 			possibleMoves->push_back(tableRelated::Move(currentMove->table, currentMove->x, currentMove->y, currentMove->type));
 		}
