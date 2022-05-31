@@ -41,6 +41,7 @@ bool GameLogic::isMoveValid(int table, int x, int y, list<tableRelated::Move>* p
 void GameLogic::MakeMove(int tableOrigin, int xOrigin, int yOrigin, int tableTarget, int xTarget, int yTarget)
 {
 	Piece* movingPiece = GetPiece(tableOrigin, xOrigin, yOrigin);
+	SetPiece(tableOrigin, xOrigin, yOrigin, NULL);
 	SetPiece(tableTarget, xTarget, yTarget, movingPiece);
 }
 
