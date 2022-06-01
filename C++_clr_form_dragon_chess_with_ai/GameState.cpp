@@ -15,6 +15,9 @@
 #include "King.h"
 #include "Paladin.h"
 #include "Warrior.h"
+#include "Basilisk.h"
+#include "Dwarf.h"
+#include "Elemental.h"
 
 
 color GameState::currentColor = white;
@@ -29,23 +32,23 @@ Piece* GameState::airTable[8][12] = {
 	{NULL,NULL,new Griffin(white),NULL,NULL,NULL,new Dragon(white),NULL,NULL,NULL,new Griffin(white),NULL},
 };
 Piece* GameState::earthTable[8][12] = {
+	{new Oliphant(black),new Unicorn(black),new Hero(black),new Thief(black),new Cleric(black),new Mage(black),new King(black),new Paladin(black),new Thief(black),new Hero(black),new Unicorn(black),new Oliphant(black)},
+	{new Warrior(black),new Warrior(black),new Warrior(black),new Warrior(black),new Warrior(black),new Warrior(black),new Warrior(black),new Warrior(black),new Warrior(black),new Warrior(black),new Warrior(black),new Warrior(black)},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
-	{new Warrior(black),NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
-	{new Unicorn(white),new Unicorn(white),new Unicorn(white),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),NULL},
-	{new Warrior(black),NULL,NULL, NULL, NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
-	{new Unicorn(white),new Unicorn(white),new Unicorn(white),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),NULL},
+	{new Warrior(white),new Warrior(white),new Warrior(white),new Warrior(white),new Warrior(white),new Warrior(white),new Warrior(white),new Warrior(white),new Warrior(white),new Warrior(white),new Warrior(white),new Warrior(white)},
+	{new Oliphant(white),new Unicorn(white),new Hero(white),new Thief(white),new Cleric(white),new Mage(white),new King(white),new Paladin(white),new Thief(white),new Hero(white),new Unicorn(white),new Oliphant(white)},
 };
 Piece* GameState::undergroundTable[8][12] = {
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
-	{new Unicorn(white),new Unicorn(white),new Unicorn(white),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
+	{NULL,new Basilisk(white),new Basilisk(white),NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{new Unicorn(white),new Unicorn(white),new Unicorn(white),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),NULL},
-	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
+	{NULL,new Basilisk(black),new Basilisk(black),NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 };
 
