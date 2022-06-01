@@ -294,6 +294,34 @@ list<tableRelated::Move>* Mage::getPossibleMoves(int table, int x, int y)
 			}
 			currentMove->y++;
 		}
+		//1:x,y
+		currentMove->x = x;
+		currentMove->y = y;
+		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
+		{
+			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
+			{
+				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::move));
+			}
+			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			{
+				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::capture));
+			}
+		}
+		//3:x,y
+		currentMove->x = x;
+		currentMove->y = y;
+		if (GameLogic::possibleMove(3, currentMove->y, currentMove->x))
+		{
+			if (GameState::undergroundTable[currentMove->y][currentMove->x] == NULL)
+			{
+				possibleMoves->push_back(tableRelated::Move(3, currentMove->x, currentMove->y, moveType::move));
+			}
+			else if (GameState::undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			{
+				possibleMoves->push_back(tableRelated::Move(3, currentMove->x, currentMove->y, moveType::capture));
+			}
+		}
 		break;
 	case 3:
 		//x+1,y

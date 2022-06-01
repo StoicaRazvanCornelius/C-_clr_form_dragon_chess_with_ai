@@ -18,32 +18,32 @@
 
 color GameState::currentColor = white;
 Piece* GameState::airTable[8][12] = {
-	{NULL,NULL,new Griffin(black),NULL,NULL,NULL,NULL,NULL,NULL,NULL,new Griffin(black),NULL},
+	{NULL,NULL,new Griffin(black),NULL,NULL,NULL,new Dragon(black),NULL,NULL,NULL,new Griffin(black),NULL},
 	{new Slyph(black),NULL,new Slyph(black),NULL,new Slyph(black),NULL,new Slyph(black),NULL,new Slyph(black),NULL,new Slyph(black),NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{new Slyph(white),NULL,new Slyph(white),NULL,new Slyph(white),NULL,new Slyph(white),NULL,new Slyph(white),NULL,new Slyph(white),NULL},
-	{NULL,NULL,new Griffin(white),NULL,NULL,NULL,NULL,NULL,NULL,NULL,new Griffin(white),NULL},
+	{NULL,NULL,new Griffin(white),NULL,NULL,NULL,new Dragon(white),NULL,NULL,NULL,new Griffin(white),NULL},
 };
 Piece* GameState::earthTable[8][12] = {
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
-	{NULL,NULL,NULL, NULL, NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{new Unicorn(white),new Unicorn(white),new Unicorn(white),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),NULL},
+	{new Mage(black),NULL,NULL, NULL, NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
-	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
+	{new Unicorn(white),new Unicorn(white),new Unicorn(white),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),NULL},
 };
 Piece* GameState::undergroundTable[8][12] = {
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
+	{new Unicorn(white),new Unicorn(white),new Unicorn(white),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
-	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
-	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
+	{new Unicorn(white),new Unicorn(white),new Unicorn(white),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 };
