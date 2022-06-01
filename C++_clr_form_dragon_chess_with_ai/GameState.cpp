@@ -33,9 +33,9 @@ Piece* GameState::earthTable[8][12] = {
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL, NULL, NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
+	{new Unicorn(white),new Unicorn(white),new Unicorn(white),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
-	{new Unicorn(white),NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 };
 Piece* GameState::undergroundTable[8][12] = {
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
