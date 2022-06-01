@@ -131,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cell.h" />
+    <ClInclude Include="Cleric.h" />
     <ClInclude Include="Dragon.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Form1.h">
@@ -141,16 +142,24 @@
     <ClInclude Include="GameSetup.h" />
     <ClInclude Include="GameTableView.h" />
     <ClInclude Include="Griffin.h" />
+    <ClInclude Include="Hero.h" />
+    <ClInclude Include="King.h" />
+    <ClInclude Include="Mage.h" />
     <ClInclude Include="moveType.h" />
     <ClInclude Include="Move.h" />
+    <ClInclude Include="Oliphant.h" />
+    <ClInclude Include="Paladin.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Piece.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Slyph.h" />
+    <ClInclude Include="Thief.h" />
+    <ClInclude Include="Unicorn.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Cell.cpp" />
+    <ClCompile Include="Cleric.cpp" />
     <ClCompile Include="color.h" />
     <ClCompile Include="Constants.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
@@ -161,7 +170,12 @@
     <ClCompile Include="GameSetup.cpp" />
     <ClCompile Include="GameTableView.cpp" />
     <ClCompile Include="Griffin.cpp" />
+    <ClCompile Include="Hero.cpp" />
+    <ClCompile Include="King.cpp" />
+    <ClCompile Include="Mage.cpp" />
     <ClCompile Include="Move.cpp" />
+    <ClCompile Include="Oliphant.cpp" />
+    <ClCompile Include="Paladin.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -170,6 +184,8 @@
     </ClCompile>
     <ClCompile Include="Piece.cpp" />
     <ClCompile Include="Slyph.cpp" />
+    <ClCompile Include="Thief.cpp" />
+    <ClCompile Include="Unicorn.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />

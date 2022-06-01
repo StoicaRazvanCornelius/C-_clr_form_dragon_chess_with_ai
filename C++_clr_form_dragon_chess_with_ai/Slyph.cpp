@@ -65,15 +65,9 @@ list<tableRelated::Move>* Slyph::getPossibleMoves(int table, int x, int y)
 				 currentMove->y = 6;
 				 currentMove->x = 0;
 				 currentMove->type = moveType::move;
-				 if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
-				 {
-					 possibleMoves->push_back(tableRelated::Move(currentMove->table, currentMove->x, currentMove->y, currentMove->type));
-
-				 }
-
 			 while (GameLogic::possibleMove(currentMove->table, currentMove->y, currentMove->x))
 			 {
-				 if (GameLogic::possibleMove(currentMove->table, currentMove->y, currentMove->x) && GameState::airTable[currentMove->y][currentMove->y] == NULL)
+				 if (GameLogic::possibleMove(currentMove->table, currentMove->y, currentMove->x) && GameState::airTable[currentMove->y][currentMove->x] == NULL)
 				 {
 					 possibleMoves->push_back(tableRelated::Move(currentMove->table, currentMove->x, currentMove->y, currentMove->type));
 				 }
@@ -102,6 +96,8 @@ list<tableRelated::Move>* Slyph::getPossibleMoves(int table, int x, int y)
 		break;
 
 	}
+
+	delete currentMove;
 	return possibleMoves;
 }
 
