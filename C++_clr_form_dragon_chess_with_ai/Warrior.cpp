@@ -35,7 +35,7 @@ list<tableRelated::Move>* Warrior::getPossibleMoves(int table, int x, int y)
 			}
 		}
 		//x,y-1
-		currentMove->x = x + 1;
+		currentMove->x = x;
 		currentMove->y = y - 1;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
