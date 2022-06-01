@@ -9,7 +9,6 @@ Slyph::Slyph(color pieceColor) : Piece(pieceColor)
 
 list<tableRelated::Move>* Slyph::getPossibleMoves(int table, int x, int y)
 {
-	
 	list<tableRelated::Move>* possibleMoves = new list<tableRelated::Move>();
 	tableRelated::Move* currentMove = new tableRelated::Move();
 

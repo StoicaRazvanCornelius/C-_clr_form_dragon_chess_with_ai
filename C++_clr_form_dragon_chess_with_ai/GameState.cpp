@@ -13,6 +13,8 @@
 #include "Cleric.h"
 #include "Mage.h"
 #include "King.h"
+#include "Paladin.h"
+
 
 color GameState::currentColor = white;
 Piece* GameState::airTable[8][12] = {
@@ -33,7 +35,7 @@ Piece* GameState::earthTable[8][12] = {
 	{NULL,NULL,NULL, NULL, NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
-	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
+	{new Unicorn(white),NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 };
 Piece* GameState::undergroundTable[8][12] = {
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},

@@ -130,10 +130,13 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Basilisk.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="Cleric.h" />
     <ClInclude Include="Dragon.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="Dwarf.h" />
+    <ClInclude Include="Elemental.h" />
     <ClInclude Include="Form1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -155,15 +158,19 @@
     <ClInclude Include="Slyph.h" />
     <ClInclude Include="Thief.h" />
     <ClInclude Include="Unicorn.h" />
+    <ClInclude Include="Warrior.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="Basilisk.cpp" />
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="Cleric.cpp" />
     <ClCompile Include="color.h" />
     <ClCompile Include="Constants.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="Dragon.cpp" />
+    <ClCompile Include="Dwarf.cpp" />
+    <ClCompile Include="Elemental.cpp" />
     <ClCompile Include="Form1.cpp" />
     <ClCompile Include="GameLogic.cpp" />
     <ClCompile Include="GameState.cpp" />
@@ -186,6 +193,7 @@
     <ClCompile Include="Slyph.cpp" />
     <ClCompile Include="Thief.cpp" />
     <ClCompile Include="Unicorn.cpp" />
+    <ClCompile Include="Warrior.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />
