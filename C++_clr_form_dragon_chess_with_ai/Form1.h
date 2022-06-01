@@ -190,19 +190,30 @@ private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 		tables[2]->ClearCells(Constants::earthTableWhite, Constants::earthTableBlack);
 		tables[3]->ClearCells(Constants::undergroundTableWhite, Constants::undergroundTableBlack);
 	}
-	public: static void MakeMove(int tableOrigin, int xOrigin, int yOrigin, int tableTarget, int xTarget, int yTarget, bool isNextTurn)
+	public: static void MakeMove(int tableOrigin, int xOrigin, int yOrigin, int tableTarget, int xTarget, int yTarget, moveType type, bool isNextTurn)
 	{
-		Cell^ originCell = ((Cell^)tables[tableOrigin]->GetControlFromPosition(xOrigin, yOrigin));
-		Cell^ targetCell = ((Cell^)tables[tableTarget]->GetControlFromPosition(xTarget, yTarget));
-		targetCell->Text = originCell->Text;
-		targetCell->ForeColor = originCell->ForeColor;
-		originCell->Text = "";
+		Cell^ originCell, ^ targetCell;
+		switch (type)
+		{
+		case capture || moveType::move:
+			originCell = ((Cell^)tables[tableOrigin]->GetControlFromPosition(xOrigin, yOrigin));
+			targetCell = ((Cell^)tables[tableTarget]->GetControlFromPosition(xTarget, yTarget));
+			targetCell->Text = originCell->Text;
+			targetCell->ForeColor = originCell->ForeColor;
+			originCell->Text = "";
+			break;
+		case capture_afar:
+			((Cell^)tables[tableTarget]->GetControlFromPosition(xTarget, yTarget))->Text = "";
+			break;
+		default:
+			break;
+		}
+		
 		Form1::ClearDisplayedMoves();
-
 		Form1::form1->Refresh();
 
 		GameLogic gameLogic;
-		gameLogic.MakeMove(tableOrigin, xOrigin, yOrigin, tableTarget, xTarget, yTarget, isNextTurn);
+		gameLogic.MakeMove(tableOrigin, xOrigin, yOrigin, tableTarget, xTarget, yTarget, type, isNextTurn);
 	}
 };
 }

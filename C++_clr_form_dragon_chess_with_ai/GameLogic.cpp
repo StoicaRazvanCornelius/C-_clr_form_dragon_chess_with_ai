@@ -42,13 +42,14 @@ Piece* GameLogic::GetPiece(int table, int x, int y, Piece* airTable[8][12], Piec
 	}
 }
 
-bool GameLogic::isMoveValid(int table, int x, int y, list<tableRelated::Move>* possibleMoves)
+moveType GameLogic::isMoveValid(int table, int x, int y, list<tableRelated::Move>* possibleMoves)
 {
+	moveType type = moveType::none;
 	for (auto it = possibleMoves->begin(); it != possibleMoves->end(); it++) 
 	{
-		if (it->x == x && it->y == y && it->table == table) return true;
+		if (it->x == x && it->y == y && it->table == table) type = it->type;
 	}
-	return false;
+	return type;
 }
 
 void GameLogic::EndTurn()
@@ -64,18 +65,29 @@ void GameLogic::EndTurn()
 			if (it->price == minMaxPrice)
 			{
 				Move move = it->move;
-				CppCLRWinFormsProject::Form1::MakeMove(move.tableOrigin, move.xOrigin, move.yOrigin, move.table, move.x, move.y, true);
+				CppCLRWinFormsProject::Form1::MakeMove(move.tableOrigin, move.xOrigin, move.yOrigin, move.table, move.x, move.y, move.type, true);
 				break;
 			}
 		}
 	}
 }
 
-void GameLogic::MakeMove(int tableOrigin, int xOrigin, int yOrigin, int tableTarget, int xTarget, int yTarget, bool isNextTurn, Piece* (&airTable)[8][12], Piece* (&earthTable)[8][12], Piece* (&undergroundTable)[8][12])
+void GameLogic::MakeMove(int tableOrigin, int xOrigin, int yOrigin, int tableTarget, int xTarget, int yTarget, moveType type, bool isNextTurn, Piece* (&airTable)[8][12], Piece* (&earthTable)[8][12], Piece* (&undergroundTable)[8][12])
 {
-	Piece* movingPiece = GetPiece(tableOrigin, xOrigin, yOrigin, airTable, earthTable, undergroundTable);
-	SetPiece(tableTarget, xTarget, yTarget, movingPiece, airTable, earthTable, undergroundTable);
-	SetPiece(tableOrigin, xOrigin, yOrigin, NULL, airTable, earthTable, undergroundTable);
+	Piece* movingPiece;
+	switch (type)
+	{
+	case capture || moveType::move:
+		movingPiece = GetPiece(tableOrigin, xOrigin, yOrigin, airTable, earthTable, undergroundTable);
+		SetPiece(tableTarget, xTarget, yTarget, movingPiece, airTable, earthTable, undergroundTable);
+		SetPiece(tableOrigin, xOrigin, yOrigin, NULL, airTable, earthTable, undergroundTable);
+		break;
+	case capture_afar:
+		SetPiece(tableTarget, xTarget, yTarget, NULL, airTable, earthTable, undergroundTable);
+		break;
+	default:
+		break;
+	}
 
 	if (isNextTurn) EndTurn();
 }
