@@ -117,6 +117,7 @@ void Cell::SelectCell(Cell^ selectedCell)
     {
         CppCLRWinFormsProject::Form1::DisplayPossibleMoves(possibleMoves);
     }
+
     delete possibleMoves;
     delete gameLogic;
 }

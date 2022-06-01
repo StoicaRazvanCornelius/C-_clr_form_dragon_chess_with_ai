@@ -22,11 +22,11 @@ list<tableRelated::Move>* Thief::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 				break;
 			}
 			else
@@ -46,11 +46,11 @@ list<tableRelated::Move>* Thief::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 				break;
 			}
 			else
@@ -70,11 +70,11 @@ list<tableRelated::Move>* Thief::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 				break;
 			}
 			else
@@ -94,11 +94,11 @@ list<tableRelated::Move>* Thief::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 				break;
 			}
 			else
@@ -122,4 +122,9 @@ int Thief::getPrice()
 char Thief::getLetter()
 {
 	return 'T';
+}
+
+Piece* Thief::copy()
+{
+	return new Thief(this->pieceColor);
 }
