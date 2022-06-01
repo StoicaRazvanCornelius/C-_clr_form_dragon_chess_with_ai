@@ -3,7 +3,7 @@
 #include "GameState.h"
 #include "GameSetup.h"
 #include "AI.h"
-#include <iostream>
+#include "Form1.h"
 
 using namespace System;
 using namespace System::ComponentModel;
@@ -32,11 +32,11 @@ Piece* GameLogic::GetPiece(int table, int x, int y, Piece* airTable[8][12], Piec
 	switch (table)
 	{
 	case 1:
-		return GameState::airTable[y][x];
+		return airTable[y][x];
 	case 2:
-		return GameState::earthTable[y][x];
+		return earthTable[y][x];
 	case 3:
-		return GameState::undergroundTable[y][x];
+		return undergroundTable[y][x];
 	default:
 		return NULL;
 	}
@@ -51,13 +51,23 @@ bool GameLogic::isMoveValid(int table, int x, int y, list<tableRelated::Move>* p
 	return false;
 }
 
-void EndTurn(bool isAI)
+void GameLogic::EndTurn()
 {
 	GameState::ChangePlayerColor();
-	if (isAI)
+	GameState::isAITurn = !GameState::isAITurn;
+	if (GameState::isAITurn)
 	{
 		BoardStateTree moves = AI::BuildTree(GameState::airTable, GameState::earthTable, GameState::undergroundTable, Move(), GameSetup::depth);
-		MessageBox::Show(AI::minmax(moves) + "");
+		int minMaxPrice = AI::minmax(moves);
+		for (auto it = moves.children.begin(); it != moves.children.end(); it++)
+		{
+			if (it->price == minMaxPrice)
+			{
+				Move move = it->move;
+				CppCLRWinFormsProject::Form1::MakeMove(move.tableOrigin, move.xOrigin, move.yOrigin, move.table, move.x, move.y, true);
+				break;
+			}
+		}
 	}
 }
 
@@ -67,7 +77,7 @@ void GameLogic::MakeMove(int tableOrigin, int xOrigin, int yOrigin, int tableTar
 	SetPiece(tableTarget, xTarget, yTarget, movingPiece, airTable, earthTable, undergroundTable);
 	SetPiece(tableOrigin, xOrigin, yOrigin, NULL, airTable, earthTable, undergroundTable);
 
-	if (isNextTurn) EndTurn(true);
+	if (isNextTurn) EndTurn();
 }
 
 void GameLogic::SetPiece(int table, int x, int y, Piece* piece, Piece* (&airTable)[8][12], Piece* (&earthTable)[8][12], Piece* (&undergroundTable)[8][12])
@@ -75,13 +85,13 @@ void GameLogic::SetPiece(int table, int x, int y, Piece* piece, Piece* (&airTabl
 	switch (table)
 	{
 	case 1:
-		GameState::airTable[y][x] = piece;
+		airTable[y][x] = piece;
 		break;
 	case 2:
-		GameState::earthTable[y][x] = piece;
+		earthTable[y][x] = piece;
 		break;
 	case 3:
-		GameState::undergroundTable[y][x] = piece;
+		undergroundTable[y][x] = piece;
 		break;
 	default:
 		break;

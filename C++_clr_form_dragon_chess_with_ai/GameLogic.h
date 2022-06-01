@@ -15,5 +15,7 @@ public:
 	void MakeMove(int tableOrigin, int xOrigin, int yOrigin, int tableTarget, int xTarget, int yTarget, bool isNextTurn = true, Piece* (&airTable)[8][12] = GameState::airTable, Piece* (&earthTable)[8][12] = GameState::earthTable, Piece* (&undergroundTable)[8][12] = GameState::undergroundTable);
 	void SetPiece(int table, int x, int y, Piece* piece, Piece* (&airTable)[8][12] = GameState::airTable, Piece* (&earthTable)[8][12] = GameState::earthTable, Piece* (&undergroundTable)[8][12] = GameState::undergroundTable);
 	static bool possibleMove(int table, int y, int x);
+private:
+	void EndTurn();
 };
 

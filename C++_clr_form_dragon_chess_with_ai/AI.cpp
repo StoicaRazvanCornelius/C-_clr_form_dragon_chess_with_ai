@@ -4,7 +4,18 @@
 #include "GameLogic.h"
 #include "GameSetup.h"
 
-BoardStateTree AI::BuildTree(Piece* (&airTable)[8][12], Piece* earthTable[8][12], Piece* undergroundTable[8][12], Move move, int depth)
+void DeleteTableCopy(Piece* (&table)[8][12])
+{
+	for (int i = 0; i < 8; i++)
+	{
+		for (int j = 0; j < 12; j++)
+		{
+			delete table[i][j];
+		}
+	}
+}
+
+BoardStateTree AI::BuildTree(Piece* (&airTable)[8][12], Piece* (&earthTable)[8][12], Piece* (&undergroundTable)[8][12], Move move, int depth)
 {
 	BoardStateTree node;
 	node.move = move;
@@ -16,11 +27,9 @@ BoardStateTree AI::BuildTree(Piece* (&airTable)[8][12], Piece* earthTable[8][12]
 	else
 	{
 		color currentColor = GameState::currentColor;
-		node.price = INT_MIN;
 		if (GameSetup::depth % 2 != depth % 2)
 		{
 			currentColor = (color)(1 - currentColor);
-			node.price = INT_MAX;
 		}
 		list<Move> possibleMoves = GetMoves(airTable, earthTable, undergroundTable, currentColor);
 		GameLogic gameLogic;
@@ -35,16 +44,16 @@ BoardStateTree AI::BuildTree(Piece* (&airTable)[8][12], Piece* earthTable[8][12]
 
 			node.children.push_back(BuildTree(airTable_copy, earthTable_copy, undergroundTable_copy, *it, depth - 1));
 
-			//delete[] airTable_copy;
-			//delete[] earthTable_copy;
-			//delete[] undergroundTable_copy;
+			DeleteTableCopy(airTable_copy);
+			DeleteTableCopy(earthTable_copy);
+			DeleteTableCopy(undergroundTable_copy);
 		}
 	}
 
 	return node;
 }
 
-int AI::minmax(BoardStateTree tree, bool isMaximizing)
+int AI::minmax(BoardStateTree &tree, bool isMaximizing)
 {
 	if (tree.children.empty())
 	{
@@ -63,7 +72,7 @@ int AI::minmax(BoardStateTree tree, bool isMaximizing)
 	return minMaxPrice;
 }
 
-void AI::CreateTablesCopy(Piece* (&airTable)[8][12], Piece* earthTable[8][12], Piece* undergroundTable[8][12], Piece* (&airTable_copy)[8][12], Piece* (&earthTable_copy)[8][12], Piece* (&undergroundTable_copy)[8][12])
+void AI::CreateTablesCopy(Piece* (&airTable)[8][12], Piece* (&earthTable)[8][12], Piece* (&undergroundTable)[8][12], Piece* (&airTable_copy)[8][12], Piece* (&earthTable_copy)[8][12], Piece* (&undergroundTable_copy)[8][12])
 {
 	for (int i = 0; i < 8; i++)
 	{
@@ -94,7 +103,7 @@ void AI::CreateTablesCopy(Piece* (&airTable)[8][12], Piece* earthTable[8][12], P
 	}
 }
 
-int AI::GetStatePrice(Piece* (&airTable)[8][12], Piece* earthTable[8][12], Piece* undergroundTable[8][12])
+int AI::GetStatePrice(Piece* (&airTable)[8][12], Piece* (&earthTable)[8][12], Piece* (&undergroundTable)[8][12])
 {
 	int price = 0;
 	GameLogic gameLogic;
@@ -118,7 +127,7 @@ int AI::GetStatePrice(Piece* (&airTable)[8][12], Piece* earthTable[8][12], Piece
 }
 
 // creates list of all possible moves of all pieces
-list<Move> AI::GetMoves(Piece* (&airTable)[8][12], Piece* earthTable[8][12], Piece* undergroundTable[8][12], color currentColor)
+list<Move> AI::GetMoves(Piece* (&airTable)[8][12], Piece* (&earthTable)[8][12], Piece* (&undergroundTable)[8][12], color currentColor)
 {
 	GameLogic gameLogic;
 	list<Move> possibleMoves;
@@ -133,6 +142,8 @@ list<Move> AI::GetMoves(Piece* (&airTable)[8][12], Piece* earthTable[8][12], Pie
 				{
 					list<Move>* tmp = piece->getPossibleMoves(table, j, i);
 					possibleMoves.insert(possibleMoves.end(), tmp->begin(), tmp->end());
+					tmp->clear();
+					delete tmp;
 				}
 			}
 		}

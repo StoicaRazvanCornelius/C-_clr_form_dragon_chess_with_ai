@@ -15,6 +15,8 @@
 #include "King.h"
 
 color GameState::currentColor = white;
+bool GameState::isAITurn = false;
+
 Piece* GameState::airTable[8][12] = {
 	{NULL,NULL,new Griffin(black),NULL,NULL,NULL,NULL,NULL,NULL,NULL,new Griffin(black),NULL},
 	{new Slyph(black),NULL,new Slyph(black),NULL,new Slyph(black),NULL,new Slyph(black),NULL,new Slyph(black),NULL,new Slyph(black),NULL},

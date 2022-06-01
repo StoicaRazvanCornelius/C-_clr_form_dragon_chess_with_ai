@@ -20,12 +20,14 @@ namespace CppCLRWinFormsProject {
 	public ref class Form1 : public System::Windows::Forms::Form
 	{
 	public:
+		static Form1^ form1;
 		Form1(void)
 		{
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
 			//
+			Form1::form1 = this;
 		}
 
 	protected:
@@ -188,16 +190,19 @@ private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 		tables[2]->ClearCells(Constants::earthTableWhite, Constants::earthTableBlack);
 		tables[3]->ClearCells(Constants::undergroundTableWhite, Constants::undergroundTableBlack);
 	}
-	public: static void MakeMove(int tableOrigin, int xOrigin, int yOrigin, int tableTarget, int xTarget, int yTarget)
+	public: static void MakeMove(int tableOrigin, int xOrigin, int yOrigin, int tableTarget, int xTarget, int yTarget, bool isNextTurn)
 	{
 		Cell^ originCell = ((Cell^)tables[tableOrigin]->GetControlFromPosition(xOrigin, yOrigin));
 		Cell^ targetCell = ((Cell^)tables[tableTarget]->GetControlFromPosition(xTarget, yTarget));
 		targetCell->Text = originCell->Text;
 		targetCell->ForeColor = originCell->ForeColor;
 		originCell->Text = "";
+		Form1::ClearDisplayedMoves();
+
+		Form1::form1->Refresh();
 
 		GameLogic gameLogic;
-		gameLogic.MakeMove(tableOrigin, xOrigin, yOrigin, tableTarget, xTarget, yTarget, true);
+		gameLogic.MakeMove(tableOrigin, xOrigin, yOrigin, tableTarget, xTarget, yTarget, isNextTurn);
 	}
 };
 }
