@@ -78,7 +78,7 @@ void Cell::GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ 
                 list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(currentTable, currentX, currentY);
                 if (gameLogic->isMoveValid(tableNumber, x, y, possibleMoves)) 
                 {
-                    CppCLRWinFormsProject::Form1::MakeMove(currentTable, currentX, currentY, this->tableNumber, this->x, this->y);
+                    CppCLRWinFormsProject::Form1::MakeMove(currentTable, currentX, currentY, this->tableNumber, this->x, this->y, true);
                     UnselectCell();
                 }
             }
@@ -92,7 +92,7 @@ void Cell::GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ 
             list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(currentTable, currentX, currentY);
             if (gameLogic->isMoveValid(tableNumber, x, y, possibleMoves))
             {
-                CppCLRWinFormsProject::Form1::MakeMove(currentTable, currentX, currentY, this->tableNumber, this->x, this->y);
+                CppCLRWinFormsProject::Form1::MakeMove(currentTable, currentX, currentY, this->tableNumber, this->x, this->y, true);
                 UnselectCell();
             }
         }

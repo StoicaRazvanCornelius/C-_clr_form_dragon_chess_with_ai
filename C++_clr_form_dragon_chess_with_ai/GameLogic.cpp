@@ -1,6 +1,17 @@
 #include "pch.h"
 #include "GameLogic.h"
 #include "GameState.h"
+#include "GameSetup.h"
+#include "AI.h"
+#include "Form1.h"
+
+using namespace System;
+using namespace System::ComponentModel;
+using namespace System::Collections;
+using namespace System::Windows::Forms;
+using namespace System::Data;
+using namespace System::Drawing;
+using namespace std;
 
 GameLogic::GameLogic()
 {
@@ -9,22 +20,23 @@ GameLogic::GameLogic()
 list<tableRelated::Move>* GameLogic::GetMoves(int table, int x, int y)
 {
 	Piece* currentPiece = GetPiece(table, x, y);
-	if (currentPiece != NULL) {
+	if (currentPiece != NULL) 
+	{
 		return currentPiece->getPossibleMoves(table, x, y);
 	}
 	return NULL;
 }
 
-Piece* GameLogic::GetPiece(int table, int x, int y)
+Piece* GameLogic::GetPiece(int table, int x, int y, Piece* airTable[8][12], Piece* earthTable[8][12], Piece* undergroundTable[8][12])
 {
 	switch (table)
 	{
 	case 1:
-		return GameState::airTable[y][x];
+		return airTable[y][x];
 	case 2:
-		return GameState::earthTable[y][x];
+		return earthTable[y][x];
 	case 3:
-		return GameState::undergroundTable[y][x];
+		return undergroundTable[y][x];
 	default:
 		return NULL;
 	}
@@ -32,33 +44,54 @@ Piece* GameLogic::GetPiece(int table, int x, int y)
 
 bool GameLogic::isMoveValid(int table, int x, int y, list<tableRelated::Move>* possibleMoves)
 {
-	for (auto it = possibleMoves->begin(); it != possibleMoves->end(); it++) {
+	for (auto it = possibleMoves->begin(); it != possibleMoves->end(); it++) 
+	{
 		if (it->x == x && it->y == y && it->table == table) return true;
 	}
 	return false;
 }
 
-void GameLogic::MakeMove(int tableOrigin, int xOrigin, int yOrigin, int tableTarget, int xTarget, int yTarget)
+void GameLogic::EndTurn()
 {
-	Piece* movingPiece = GetPiece(tableOrigin, xOrigin, yOrigin);
-	SetPiece(tableTarget, xTarget, yTarget, movingPiece);
-	SetPiece(tableOrigin, xOrigin, yOrigin, NULL);
-
 	GameState::ChangePlayerColor();
+	GameState::isAITurn = !GameState::isAITurn;
+	if (GameState::isAITurn)
+	{
+		BoardStateTree moves = AI::BuildTree(GameState::airTable, GameState::earthTable, GameState::undergroundTable, Move(), GameSetup::depth);
+		int minMaxPrice = AI::minmax(moves);
+		for (auto it = moves.children.begin(); it != moves.children.end(); it++)
+		{
+			if (it->price == minMaxPrice)
+			{
+				Move move = it->move;
+				CppCLRWinFormsProject::Form1::MakeMove(move.tableOrigin, move.xOrigin, move.yOrigin, move.table, move.x, move.y, true);
+				break;
+			}
+		}
+	}
 }
 
-void GameLogic::SetPiece(int table, int x, int y, Piece* piece)
+void GameLogic::MakeMove(int tableOrigin, int xOrigin, int yOrigin, int tableTarget, int xTarget, int yTarget, bool isNextTurn, Piece* (&airTable)[8][12], Piece* (&earthTable)[8][12], Piece* (&undergroundTable)[8][12])
+{
+	Piece* movingPiece = GetPiece(tableOrigin, xOrigin, yOrigin, airTable, earthTable, undergroundTable);
+	SetPiece(tableTarget, xTarget, yTarget, movingPiece, airTable, earthTable, undergroundTable);
+	SetPiece(tableOrigin, xOrigin, yOrigin, NULL, airTable, earthTable, undergroundTable);
+
+	if (isNextTurn) EndTurn();
+}
+
+void GameLogic::SetPiece(int table, int x, int y, Piece* piece, Piece* (&airTable)[8][12], Piece* (&earthTable)[8][12], Piece* (&undergroundTable)[8][12])
 {
 	switch (table)
 	{
 	case 1:
-		GameState::airTable[y][x] = piece;
+		airTable[y][x] = piece;
 		break;
 	case 2:
-		GameState::earthTable[y][x] = piece;
+		earthTable[y][x] = piece;
 		break;
 	case 3:
-		GameState::undergroundTable[y][x] = piece;
+		undergroundTable[y][x] = piece;
 		break;
 	default:
 		break;

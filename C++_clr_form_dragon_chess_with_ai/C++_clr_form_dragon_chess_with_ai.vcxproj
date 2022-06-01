@@ -130,6 +130,8 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AI.h" />
+    <ClInclude Include="BoardStateTree.h" />
     <ClInclude Include="Basilisk.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="Cleric.h" />
@@ -161,8 +163,10 @@
     <ClInclude Include="Warrior.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AI.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Basilisk.cpp" />
+    <ClCompile Include="BoardStateTree.cpp" />
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="Cleric.cpp" />
     <ClCompile Include="color.h" />
