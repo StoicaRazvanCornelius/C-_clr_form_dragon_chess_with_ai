@@ -89,7 +89,7 @@ void AI::CreateTablesCopy(Piece* (&airTable)[8][12], Piece* (&earthTable)[8][12]
 		{
 			Piece* piece = earthTable[i][j];
 			if (piece == NULL) earthTable_copy[i][j] = NULL;
-			else earthTable_copy[i][j] = earthTable[i][j]->copy();
+			else earthTable_copy[i][j] = piece->copy();
 		}
 	}
 	for (int i = 0; i < 8; i++)
@@ -98,7 +98,7 @@ void AI::CreateTablesCopy(Piece* (&airTable)[8][12], Piece* (&earthTable)[8][12]
 		{
 			Piece* piece = undergroundTable[i][j];
 			if (piece == NULL) undergroundTable_copy[i][j] = NULL;
-			else undergroundTable_copy[i][j] = airTable[i][j]->copy();
+			else undergroundTable_copy[i][j] = piece->copy();
 		}
 	}
 }
