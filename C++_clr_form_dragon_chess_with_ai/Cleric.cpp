@@ -424,3 +424,8 @@ int Cleric::getPrice()
 {
 	return 18;
 }
+
+char Cleric::getLetter()
+{
+	return 'C';
+}

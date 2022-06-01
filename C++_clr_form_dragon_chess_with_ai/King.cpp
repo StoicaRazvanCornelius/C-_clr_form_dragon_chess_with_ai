@@ -200,3 +200,8 @@ int King::getPrice()
 	return INT_MAX;
 }
 
+char King::getLetter()
+{
+	return 'K';
+}
+

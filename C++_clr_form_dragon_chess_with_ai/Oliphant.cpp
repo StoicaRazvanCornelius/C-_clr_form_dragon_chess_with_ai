@@ -121,3 +121,8 @@ int Oliphant::getPrice()
 {
 	return 10;
 }
+
+char Oliphant::getLetter()
+{
+	return 'O';
+}

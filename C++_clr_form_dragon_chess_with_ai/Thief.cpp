@@ -118,3 +118,8 @@ int Thief::getPrice()
 {
     return 8;
 }
+
+char Thief::getLetter()
+{
+	return 'T';
+}

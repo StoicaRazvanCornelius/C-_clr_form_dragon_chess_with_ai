@@ -218,3 +218,8 @@ int Dragon::getPrice()
 {
 	return 16;
 }
+
+char Dragon::getLetter()
+{
+	return 'R';
+}

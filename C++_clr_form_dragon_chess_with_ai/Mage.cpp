@@ -390,3 +390,8 @@ int Mage::getPrice()
 {
 	return 22;
 }
+
+char Mage::getLetter()
+{
+	return 'M';
+}

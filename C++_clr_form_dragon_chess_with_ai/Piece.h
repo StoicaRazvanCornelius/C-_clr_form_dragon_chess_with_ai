@@ -11,6 +11,7 @@ public:
 	virtual list<tableRelated::Move>* getPossibleMoves(int table, int x, int y) = 0;
 	color getColor();
 	virtual int getPrice() = 0;
+	virtual char getLetter() = 0;
 
 protected:
 	color pieceColor;

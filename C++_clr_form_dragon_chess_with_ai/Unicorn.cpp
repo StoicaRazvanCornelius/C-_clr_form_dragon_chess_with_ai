@@ -133,3 +133,8 @@ int Unicorn::getPrice()
 {
 	return 16;
 }
+
+char Unicorn::getLetter()
+{
+	return 'U';
+}

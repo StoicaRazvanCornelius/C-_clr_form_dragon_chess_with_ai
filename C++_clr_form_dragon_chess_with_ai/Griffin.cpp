@@ -298,3 +298,8 @@ int Griffin::getPrice()
 {
 	return 10;
 }
+
+char Griffin::getLetter()
+{
+	return 'G';
+}

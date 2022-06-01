@@ -142,3 +142,8 @@ int Slyph::getPrice()
 {
 	return 2;
 }
+
+char Slyph::getLetter()
+{
+	return 'S';
+}

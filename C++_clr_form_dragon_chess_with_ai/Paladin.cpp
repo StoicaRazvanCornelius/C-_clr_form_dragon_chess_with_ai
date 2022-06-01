@@ -14,3 +14,8 @@ int Paladin::getPrice()
 {
 	return 20;
 }
+
+char Paladin::getLetter()
+{
+	return 'P';
+}

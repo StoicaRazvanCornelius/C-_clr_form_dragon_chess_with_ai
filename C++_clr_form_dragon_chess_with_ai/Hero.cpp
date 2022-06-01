@@ -328,3 +328,8 @@ int Hero::getPrice()
 {
 	return 9;
 }
+
+char Hero::getLetter()
+{
+	return 'H';
+}
