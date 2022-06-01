@@ -22,11 +22,11 @@ list<tableRelated::Move>* Griffin::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//x+2,y-3
@@ -36,11 +36,11 @@ list<tableRelated::Move>* Griffin::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//x-2,y-3
@@ -50,11 +50,11 @@ list<tableRelated::Move>* Griffin::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//x-3,y-2
@@ -64,11 +64,11 @@ list<tableRelated::Move>* Griffin::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//x-3,y+2
@@ -78,11 +78,11 @@ list<tableRelated::Move>* Griffin::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//x-2,y+3
@@ -92,11 +92,11 @@ list<tableRelated::Move>* Griffin::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//x+3,y+2
@@ -106,11 +106,11 @@ list<tableRelated::Move>* Griffin::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//x+2,y+3
@@ -120,11 +120,11 @@ list<tableRelated::Move>* Griffin::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//2:x+1,y-1
@@ -134,11 +134,11 @@ list<tableRelated::Move>* Griffin::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//2:x-1,y-1
@@ -148,11 +148,11 @@ list<tableRelated::Move>* Griffin::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//2:x-1,y+1
@@ -162,11 +162,11 @@ list<tableRelated::Move>* Griffin::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//2:x+1,y+1
@@ -176,11 +176,11 @@ list<tableRelated::Move>* Griffin::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		break;
@@ -192,22 +192,22 @@ list<tableRelated::Move>* Griffin::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 		{
 			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//1,2:x-1,y-1
@@ -217,22 +217,22 @@ list<tableRelated::Move>* Griffin::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 		{
 			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//1,2:x-1,y+1
@@ -242,22 +242,22 @@ list<tableRelated::Move>* Griffin::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 		{
 			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//1,2:x+1,y+1
@@ -267,22 +267,22 @@ list<tableRelated::Move>* Griffin::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 		{
 			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		break;
@@ -302,4 +302,9 @@ int Griffin::getPrice()
 char Griffin::getLetter()
 {
 	return 'G';
+}
+
+Piece* Griffin::copy()
+{
+	return new Griffin(this->pieceColor);
 }

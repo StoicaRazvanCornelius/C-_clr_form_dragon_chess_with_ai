@@ -8,8 +8,9 @@ class Piece
 {
 public:
 	Piece(color pieceColor);
-	virtual list<tableRelated::Move>* getPossibleMoves(int table, int x, int y) = 0;
 	color getColor();
+	virtual Piece* copy() = 0;
+	virtual list<tableRelated::Move>* getPossibleMoves(int table, int x, int y) = 0;
 	virtual int getPrice() = 0;
 	virtual char getLetter() = 0;
 
