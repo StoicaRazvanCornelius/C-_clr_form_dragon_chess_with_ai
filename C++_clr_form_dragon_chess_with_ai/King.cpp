@@ -21,11 +21,11 @@ list<tableRelated::Move>* King::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		break;
@@ -37,11 +37,11 @@ list<tableRelated::Move>* King::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//x+1,y-1
@@ -51,11 +51,11 @@ list<tableRelated::Move>* King::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//x,y-1
@@ -65,11 +65,11 @@ list<tableRelated::Move>* King::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//x-1,y-1
@@ -79,7 +79,7 @@ list<tableRelated::Move>* King::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
@@ -93,11 +93,11 @@ list<tableRelated::Move>* King::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//x-1,y+1
@@ -107,11 +107,11 @@ list<tableRelated::Move>* King::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//x,y+1
@@ -121,11 +121,11 @@ list<tableRelated::Move>* King::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//x+1,y+1
@@ -135,11 +135,11 @@ list<tableRelated::Move>* King::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//1:x,y
@@ -149,11 +149,11 @@ list<tableRelated::Move>* King::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//3:x,y
@@ -163,11 +163,11 @@ list<tableRelated::Move>* King::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::undergroundTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(3, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(3, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		break;
@@ -179,11 +179,11 @@ list<tableRelated::Move>* King::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		break;
@@ -205,3 +205,7 @@ char King::getLetter()
 	return 'K';
 }
 
+Piece* King::copy()
+{
+	return new King(this->pieceColor);
+}

@@ -22,11 +22,11 @@ list<tableRelated::Move>* Hero::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//2:x-1,y-1
@@ -36,11 +36,11 @@ list<tableRelated::Move>* Hero::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//2:x-1,y+1
@@ -50,11 +50,11 @@ list<tableRelated::Move>* Hero::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//2:x+1,y+1
@@ -64,11 +64,11 @@ list<tableRelated::Move>* Hero::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		break;
@@ -82,11 +82,11 @@ list<tableRelated::Move>* Hero::getPossibleMoves(int table, int x, int y)
 			{
 				if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 				{
-					possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+					possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 				}
 				else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 				{
-					possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+					possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 				}
 			}
 			currentMove->x++;
@@ -103,11 +103,11 @@ list<tableRelated::Move>* Hero::getPossibleMoves(int table, int x, int y)
 			{
 				if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 				{
-					possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+					possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 				}
 				else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 				{
-					possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+					possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 				}
 			}
 			currentMove->x--;
@@ -124,11 +124,11 @@ list<tableRelated::Move>* Hero::getPossibleMoves(int table, int x, int y)
 			{
 				if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 				{
-					possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+					possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 				}
 				else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 				{
-					possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+					possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 				}
 			}
 			currentMove->x--;
@@ -145,11 +145,11 @@ list<tableRelated::Move>* Hero::getPossibleMoves(int table, int x, int y)
 			{
 				if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 				{
-					possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+					possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 				}
 				else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 				{
-					possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+					possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 
 				}
 			}
@@ -164,22 +164,22 @@ list<tableRelated::Move>* Hero::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		if (GameLogic::possibleMove(3, currentMove->y, currentMove->x))
 		{
 			if (GameState::undergroundTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(3, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(3, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//1,3:x-1,y-1
@@ -189,22 +189,22 @@ list<tableRelated::Move>* Hero::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		if (GameLogic::possibleMove(3, currentMove->y, currentMove->x))
 		{
 			if (GameState::undergroundTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(3, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(3, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//1,3:x-1,y+1
@@ -214,22 +214,22 @@ list<tableRelated::Move>* Hero::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		if (GameLogic::possibleMove(3, currentMove->y, currentMove->x))
 		{
 			if (GameState::undergroundTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(3, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(3, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//1,3:x+1,y+1
@@ -239,22 +239,22 @@ list<tableRelated::Move>* Hero::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(1, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		if (GameLogic::possibleMove(3, currentMove->y, currentMove->x))
 		{
 			if (GameState::undergroundTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(3, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(3, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		break;
@@ -266,11 +266,11 @@ list<tableRelated::Move>* Hero::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//2:x-1,y-1
@@ -280,11 +280,11 @@ list<tableRelated::Move>* Hero::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//2:x-1,y+1
@@ -294,11 +294,11 @@ list<tableRelated::Move>* Hero::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		//2:x+1,y+1
@@ -308,11 +308,11 @@ list<tableRelated::Move>* Hero::getPossibleMoves(int table, int x, int y)
 		{
 			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::move));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
 			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
-				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
+				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
 		break;
@@ -332,4 +332,8 @@ int Hero::getPrice()
 char Hero::getLetter()
 {
 	return 'H';
+}
+Piece* Hero::copy()
+{
+	return new Hero(this->pieceColor);
 }
