@@ -40,7 +40,7 @@ BoardStateTree AI::BuildTree(Piece* (&airTable)[8][12], Piece* (&earthTable)[8][
 			Piece* undergroundTable_copy[8][12];
 
 			CreateTablesCopy(airTable, earthTable, undergroundTable, airTable_copy, earthTable_copy, undergroundTable_copy);
-			gameLogic.MakeMove(it->tableOrigin, it->xOrigin, it->yOrigin, it->table, it->x, it->y, false, airTable_copy, earthTable_copy, undergroundTable_copy);
+			gameLogic.MakeMove(it->tableOrigin, it->xOrigin, it->yOrigin, it->table, it->x, it->y, it->type, false, airTable_copy, earthTable_copy, undergroundTable_copy);
 
 			node.children.push_back(BuildTree(airTable_copy, earthTable_copy, undergroundTable_copy, *it, depth - 1));
 
@@ -89,7 +89,7 @@ void AI::CreateTablesCopy(Piece* (&airTable)[8][12], Piece* (&earthTable)[8][12]
 		{
 			Piece* piece = earthTable[i][j];
 			if (piece == NULL) earthTable_copy[i][j] = NULL;
-			else earthTable_copy[i][j] = earthTable[i][j]->copy();
+			else earthTable_copy[i][j] = piece->copy();
 		}
 	}
 	for (int i = 0; i < 8; i++)
@@ -98,7 +98,7 @@ void AI::CreateTablesCopy(Piece* (&airTable)[8][12], Piece* (&earthTable)[8][12]
 		{
 			Piece* piece = undergroundTable[i][j];
 			if (piece == NULL) undergroundTable_copy[i][j] = NULL;
-			else undergroundTable_copy[i][j] = airTable[i][j]->copy();
+			else undergroundTable_copy[i][j] = piece->copy();
 		}
 	}
 }
@@ -142,7 +142,6 @@ list<Move> AI::GetMoves(Piece* (&airTable)[8][12], Piece* (&earthTable)[8][12], 
 				{
 					list<Move>* tmp = piece->getPossibleMoves(table, j, i);
 					possibleMoves.insert(possibleMoves.end(), tmp->begin(), tmp->end());
-					tmp->clear();
 					delete tmp;
 				}
 			}

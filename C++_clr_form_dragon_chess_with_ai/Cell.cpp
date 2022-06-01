@@ -3,6 +3,7 @@
 #include "Piece.h"
 #include "Slyph.h"
 #include "Form1.h"
+#include "Move.h"
 
 Cell::Cell(int x, int y, int tableNumber, char value)
 {
@@ -76,9 +77,10 @@ void Cell::GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ 
             if (currentTable != -1 && currentX != -1 && currentY != -1)
             {
                 list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(currentTable, currentX, currentY);
-                if (gameLogic->isMoveValid(tableNumber, x, y, possibleMoves)) 
+                moveType type = gameLogic->isMoveValid(tableNumber, x, y, possibleMoves);
+                if (type != moveType::none) 
                 {
-                    CppCLRWinFormsProject::Form1::MakeMove(currentTable, currentX, currentY, this->tableNumber, this->x, this->y, true);
+                    CppCLRWinFormsProject::Form1::MakeMove(currentTable, currentX, currentY, this->tableNumber, this->x, this->y, type, true);
                     UnselectCell();
                 }
             }
@@ -90,9 +92,10 @@ void Cell::GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ 
         if (currentTable != -1 && currentX != -1 && currentY != -1)
         {
             list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(currentTable, currentX, currentY);
-            if (gameLogic->isMoveValid(tableNumber, x, y, possibleMoves))
+            moveType type = gameLogic->isMoveValid(tableNumber, x, y, possibleMoves);
+            if (type != moveType::none)
             {
-                CppCLRWinFormsProject::Form1::MakeMove(currentTable, currentX, currentY, this->tableNumber, this->x, this->y, true);
+                CppCLRWinFormsProject::Form1::MakeMove(currentTable, currentX, currentY, this->tableNumber, this->x, this->y, type, true);
                 UnselectCell();
             }
         }

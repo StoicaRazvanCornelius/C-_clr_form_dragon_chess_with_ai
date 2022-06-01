@@ -2,4 +2,5 @@
 #include "pch.h"
 #include "GameSetup.h"
 
-int GameSetup::depth = 4;
+// dynamic depth. Less Pieces = Bigger depth
+int GameSetup::depth = 3;

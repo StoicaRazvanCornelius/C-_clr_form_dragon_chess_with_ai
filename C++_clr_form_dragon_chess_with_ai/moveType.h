@@ -4,5 +4,6 @@ enum moveType
 	capture,
 	move,
 	capture_afar,
-	freezing
+	freezing,
+	none
 };

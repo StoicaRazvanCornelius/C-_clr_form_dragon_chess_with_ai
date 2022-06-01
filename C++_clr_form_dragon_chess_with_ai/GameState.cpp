@@ -19,10 +19,8 @@
 #include "Dwarf.h"
 #include "Elemental.h"
 
-
 color GameState::currentColor = white;
 bool GameState::isAITurn = false;
-
 
 Piece* GameState::airTable[8][12] = {
 	{NULL,NULL,new Griffin(black),NULL,NULL,NULL,new Dragon(black),NULL,NULL,NULL,new Griffin(black),NULL},
