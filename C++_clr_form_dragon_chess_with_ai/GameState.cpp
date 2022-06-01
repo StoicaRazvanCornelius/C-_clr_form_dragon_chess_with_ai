@@ -45,3 +45,9 @@ Piece* GameState::undergroundTable[8][12] = {
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 };
+
+void GameState::ChangePlayerColor()
+{
+	if (currentColor == color::black) currentColor = color::white;
+	else currentColor = color::black;
+}
