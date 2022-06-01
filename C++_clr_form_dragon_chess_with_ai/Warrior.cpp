@@ -24,7 +24,7 @@ list<tableRelated::Move>* Warrior::getPossibleMoves(int table, int x, int y)
 				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
-		//x+2,y-1
+		//x-1,y-1
 		currentMove->x = x - 1;
 		currentMove->y = y - 1;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
@@ -35,7 +35,7 @@ list<tableRelated::Move>* Warrior::getPossibleMoves(int table, int x, int y)
 			}
 		}
 		//x,y-1
-		currentMove->x = x + 2;
+		currentMove->x = x + 1;
 		currentMove->y = y - 1;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
@@ -56,7 +56,7 @@ list<tableRelated::Move>* Warrior::getPossibleMoves(int table, int x, int y)
 				possibleMoves->push_back(tableRelated::Move(2, currentMove->x, currentMove->y, moveType::capture));
 			}
 		}
-		//x+2,y+1
+		//x-1,y+1
 		currentMove->x = x - 1;
 		currentMove->y = y + 1;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
@@ -67,7 +67,7 @@ list<tableRelated::Move>* Warrior::getPossibleMoves(int table, int x, int y)
 			}
 		}
 		//x,y+1
-		currentMove->x = x + 2;
+		currentMove->x = x;
 		currentMove->y = y + 1;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{

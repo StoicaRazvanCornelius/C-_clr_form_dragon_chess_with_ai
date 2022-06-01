@@ -14,6 +14,7 @@
 #include "Mage.h"
 #include "King.h"
 #include "Paladin.h"
+#include "Warrior.h"
 
 
 color GameState::currentColor = white;
@@ -31,9 +32,9 @@ Piece* GameState::earthTable[8][12] = {
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
-	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
+	{new Warrior(black),NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{new Unicorn(white),new Unicorn(white),new Unicorn(white),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),NULL},
-	{new Mage(black),NULL,NULL, NULL, NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
+	{new Warrior(black),NULL,NULL, NULL, NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{new Unicorn(white),new Unicorn(white),new Unicorn(white),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),new Unicorn(black),NULL},
 };
