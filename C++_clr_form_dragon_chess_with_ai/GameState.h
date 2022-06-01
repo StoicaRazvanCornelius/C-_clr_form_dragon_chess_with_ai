@@ -9,6 +9,7 @@ public:
 	static Piece* earthTable[8][12];
 	static Piece* undergroundTable[8][12];
 	static color currentColor;
+	static bool isAITurn;
 
 	static void ChangePlayerColor();
 };

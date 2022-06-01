@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include "GameSetup.h"
+#include "GameState.h"
 #include "GameTableView.h"
 #include "GameLogic.h"
 #include "Constants.h"
@@ -20,12 +20,14 @@ namespace CppCLRWinFormsProject {
 	public ref class Form1 : public System::Windows::Forms::Form
 	{
 	public:
+		static Form1^ form1;
 		Form1(void)
 		{
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
 			//
+			Form1::form1 = this;
 		}
 
 	protected:
@@ -147,9 +149,9 @@ namespace CppCLRWinFormsProject {
 		}
 
 private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
-		airTablePanel = gcnew GameTableView(Constants::airTableWhite, Constants::airTableBlack, GameSetup::initAirTableSetup, 1);
-		earthTablePanel = gcnew GameTableView(Constants::earthTableWhite, Constants::earthTableBlack, GameSetup::initEarthTableSetup, 2);
-		undergroundTablePanel = gcnew GameTableView(Constants::undergroundTableWhite, Constants::undergroundTableBlack, GameSetup::initUndergroundTableSetup, 3);
+		airTablePanel = gcnew GameTableView(Constants::airTableWhite, Constants::airTableBlack, GameState::airTable, 1);
+		earthTablePanel = gcnew GameTableView(Constants::earthTableWhite, Constants::earthTableBlack, GameState::earthTable, 2);
+		undergroundTablePanel = gcnew GameTableView(Constants::undergroundTableWhite, Constants::undergroundTableBlack, GameState::undergroundTable, 3);
 
 		gameGrid->Controls->Add(airTablePanel);
 		gameGrid->Controls->Add(earthTablePanel);
@@ -188,16 +190,19 @@ private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 		tables[2]->ClearCells(Constants::earthTableWhite, Constants::earthTableBlack);
 		tables[3]->ClearCells(Constants::undergroundTableWhite, Constants::undergroundTableBlack);
 	}
-	public: static void MakeMove(int tableOrigin, int xOrigin, int yOrigin, int tableTarget, int xTarget, int yTarget)
+	public: static void MakeMove(int tableOrigin, int xOrigin, int yOrigin, int tableTarget, int xTarget, int yTarget, bool isNextTurn)
 	{
 		Cell^ originCell = ((Cell^)tables[tableOrigin]->GetControlFromPosition(xOrigin, yOrigin));
-		String^ originPiece = originCell->Text;
+		Cell^ targetCell = ((Cell^)tables[tableTarget]->GetControlFromPosition(xTarget, yTarget));
+		targetCell->Text = originCell->Text;
+		targetCell->ForeColor = originCell->ForeColor;
 		originCell->Text = "";
-		((Cell^)tables[tableTarget]->GetControlFromPosition(xTarget, yTarget))->Text = originPiece;
+		Form1::ClearDisplayedMoves();
 
-		GameLogic* gameLogic = new GameLogic();
-		gameLogic->MakeMove(tableOrigin, xOrigin, yOrigin, tableTarget, xTarget, yTarget);
-		delete gameLogic;
+		Form1::form1->Refresh();
+
+		GameLogic gameLogic;
+		gameLogic.MakeMove(tableOrigin, xOrigin, yOrigin, tableTarget, xTarget, yTarget, isNextTurn);
 	}
 };
 }

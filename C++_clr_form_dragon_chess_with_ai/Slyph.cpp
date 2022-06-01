@@ -137,3 +137,8 @@ char Slyph::getLetter()
 {
 	return 'S';
 }
+
+Piece* Slyph::copy()
+{
+	return new Slyph(this->pieceColor);
+}

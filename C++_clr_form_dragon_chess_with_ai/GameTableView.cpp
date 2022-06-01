@@ -2,7 +2,7 @@
 #include "GameTableView.h"
 #include "Form1.h"
 
-GameTableView::GameTableView(Color white, Color black, char initPosition[8][12], int tableNumber)
+GameTableView::GameTableView(Color white, Color black, Piece* initPosition[8][12], int tableNumber)
 {
     this->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
         | System::Windows::Forms::AnchorStyles::Left)
@@ -67,14 +67,19 @@ void GameTableView::ClearCells(Color white, Color black)
     }
 }
 
-void GameTableView::DisplayCells(Color white, Color black, char initPosition[8][12], int tableNumber)
+void GameTableView::DisplayCells(Color white, Color black, Piece* initPosition[8][12], int tableNumber)
 {
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 12; j++) {
-            Cell^ tmp = gcnew Cell(j, i, tableNumber, initPosition[i][j]);
+            Cell^ tmp = gcnew Cell(j, i, tableNumber, ' ');
+            if (initPosition[i][j] != NULL)
+            {
+                tmp->Text = gcnew String(initPosition[i][j]->getLetter() + "");
+                if (initPosition[i][j]->getColor() == color::white) tmp->SetForegroundColor(Color::White);
+                else tmp->SetForegroundColor(Color::Black);
+            }
             if ((i + j) % 2 == 0) tmp->SetBackgroundColor(white);
             else tmp->SetBackgroundColor(black);
-            tmp->SetForegroundColor(Color::White);
             this->Controls->Add(tmp);
         }
     }

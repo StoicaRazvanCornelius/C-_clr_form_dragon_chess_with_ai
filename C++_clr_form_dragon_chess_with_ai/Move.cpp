@@ -15,3 +15,10 @@ tableRelated::Move::Move(int table, int x, int y,moveType type = moveType::move)
 	this->y = y;
 	this->type = type;
 }
+
+tableRelated::Move::Move(int tableOrigin, int xOrigin, int yOrigin, int table, int x, int y, moveType type) : Move(table, x, y, type)
+{
+	this->tableOrigin = tableOrigin;
+	this->xOrigin = xOrigin;
+	this->yOrigin = yOrigin;
+}
