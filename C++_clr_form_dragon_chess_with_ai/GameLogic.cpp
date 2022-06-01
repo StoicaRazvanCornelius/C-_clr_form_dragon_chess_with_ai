@@ -43,6 +43,8 @@ void GameLogic::MakeMove(int tableOrigin, int xOrigin, int yOrigin, int tableTar
 	Piece* movingPiece = GetPiece(tableOrigin, xOrigin, yOrigin);
 	SetPiece(tableTarget, xTarget, yTarget, movingPiece);
 	SetPiece(tableOrigin, xOrigin, yOrigin, NULL);
+
+	GameState::ChangePlayerColor();
 }
 
 void GameLogic::SetPiece(int table, int x, int y, Piece* piece)

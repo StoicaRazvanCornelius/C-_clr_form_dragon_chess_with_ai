@@ -178,7 +178,7 @@ private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 		// Orange - capture
 		// Grey - current
 		for (auto it = possibleMoves->begin(); it != possibleMoves->end(); it++) {
-			MessageBox::Show(it->table + " column: " + it->x + " row: " + it->y);
+			// MessageBox::Show(it->table + " column: " + it->x + " row: " + it->y);
 			((Cell^)tables[it->table]->GetControlFromPosition(it->x, it->y))->BackColor = Drawing::Color::Yellow;
 		}
 	}

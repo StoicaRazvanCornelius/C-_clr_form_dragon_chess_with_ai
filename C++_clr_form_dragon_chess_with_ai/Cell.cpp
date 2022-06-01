@@ -52,27 +52,27 @@ void Cell::GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ 
     
     if (currentTable == selectedCell->GetTableNumber() && currentX == selectedCell->GetX() && currentY == selectedCell->GetY())
     {
-        MessageBox::Show("click 1");
+        // MessageBox::Show("click 1");
         UnselectCell();
     }
     else if (currentTable == -1 && currentX == -1 && currentY == -1 && currentClickedPiece != NULL && currentClickedPiece->getColor() == GameState::currentColor)
     {
-        MessageBox::Show("click 2");
+        // MessageBox::Show("click 2");
         SelectCell(selectedCell);
     }
     else if (currentClickedPiece != NULL)
     {
-        MessageBox::Show("click 3");
+        // MessageBox::Show("click 3");
         Piece* currentSelectedPiece = gameLogic->GetPiece(currentTable, currentX, currentY);
         if (currentSelectedPiece != NULL && currentSelectedPiece->getColor() == currentClickedPiece->getColor())
         {
-            MessageBox::Show("click 4");
+            // MessageBox::Show("click 4");
             CppCLRWinFormsProject::Form1::ClearDisplayedMoves();
             SelectCell(selectedCell);
         }
         else
         {
-            MessageBox::Show("click 5");
+            // MessageBox::Show("click 5");
             if (currentTable != -1 && currentX != -1 && currentY != -1)
             {
                 list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(currentTable, currentX, currentY);
@@ -86,7 +86,7 @@ void Cell::GeneralBlockClickFunction(System::Object^ sender, System::EventArgs^ 
     }
     else
     {
-        MessageBox::Show("click 6");
+        // MessageBox::Show("click 6");
         if (currentTable != -1 && currentX != -1 && currentY != -1)
         {
             list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(currentTable, currentX, currentY);
@@ -108,7 +108,7 @@ void Cell::SelectCell(Cell^ selectedCell)
 
     selectedCell->SetBackgroundColor(Color::YellowGreen);
 
-    MessageBox::Show("table = " + currentTable + " x: " + currentX + " y: " + currentY);
+    // MessageBox::Show("table = " + currentTable + " x: " + currentX + " y: " + currentY);
     list<tableRelated::Move>* possibleMoves = gameLogic->GetMoves(currentTable, currentX, currentY);
     if (possibleMoves != NULL)
     {
