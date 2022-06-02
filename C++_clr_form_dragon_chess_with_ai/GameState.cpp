@@ -42,7 +42,7 @@ Piece* GameState::earthTable[8][12] = {
 	{new Warrior(white),new Warrior(white),new Warrior(white),new Warrior(white),new Warrior(white),new Warrior(white),new Warrior(white),new Warrior(white),new Warrior(white),new Warrior(white),new Warrior(white),new Warrior(white)},
 	{new Oliphant(white),new Unicorn(white),new Hero(white),new Thief(white),new Cleric(white),new Mage(white),new King(white),new Paladin(white),new Thief(white),new Hero(white),new Unicorn(white),new Oliphant(white)},
 };
-Piece* GameState::undergroundTable[8][12] = {
+/**Piece* GameState::undergroundTable[8][12] = {
 	{NULL,NULL,new Basilisk(black),NULL,NULL,NULL,new Elemental(black),NULL,NULL,NULL,new Basilisk(black),NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
@@ -52,7 +52,8 @@ Piece* GameState::undergroundTable[8][12] = {
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,NULL,new Basilisk(white),NULL,NULL,NULL,new Elemental(white),NULL,NULL,NULL,new Basilisk(white),NULL},
 };
-/*Piece* GameState::undergroundTable[8][12] = {
+*/
+Piece* GameState::undergroundTable[8][12] = {
 	{NULL,NULL,new Basilisk(black),NULL,NULL,NULL,new Elemental(black),NULL,NULL,NULL,new Basilisk(black),NULL},
 	{NULL,new Dwarf(black),NULL,new Dwarf(black),NULL,new Dwarf(black),NULL,new Dwarf(black),NULL,new Dwarf(black),NULL, new Dwarf(black)},
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
@@ -61,7 +62,7 @@ Piece* GameState::undergroundTable[8][12] = {
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
 	{NULL,new Dwarf(white),NULL,new Dwarf(white),NULL,new Dwarf(white),NULL,new Dwarf(white),NULL,new Dwarf(white),NULL,new Dwarf(white)},
 	{NULL,NULL,new Basilisk(white),NULL,NULL,NULL,new Elemental(white),NULL,NULL,NULL,new Basilisk(white),NULL},
-};*/
+};
 
 void GameState::ChangePlayerColor()
 {
