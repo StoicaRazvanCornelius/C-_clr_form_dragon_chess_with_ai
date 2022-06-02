@@ -140,7 +140,7 @@ list<Move> AI::GetMoves(Piece* (&airTable)[8][12], Piece* (&earthTable)[8][12], 
 				Piece* piece = gameLogic.GetPiece(table, j, i, airTable, earthTable, undergroundTable);
 				if (piece != NULL && piece->getColor() == currentColor)
 				{
-					list<Move>* tmp = piece->getPossibleMoves(table, j, i);
+					list<Move>* tmp = piece->getPossibleMoves(table, j, i, airTable, earthTable, undergroundTable);
 					possibleMoves.insert(possibleMoves.end(), tmp->begin(), tmp->end());
 					delete tmp;
 				}

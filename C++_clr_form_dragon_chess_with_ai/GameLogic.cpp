@@ -22,7 +22,7 @@ list<tableRelated::Move>* GameLogic::GetMoves(int table, int x, int y)
 	Piece* currentPiece = GetPiece(table, x, y);
 	if (currentPiece != NULL) 
 	{
-		return currentPiece->getPossibleMoves(table, x, y);
+		return currentPiece->getPossibleMoves(table, x, y, GameState::airTable, GameState::earthTable, GameState::undergroundTable);
 	}
 	return NULL;
 }

@@ -7,7 +7,7 @@ Slyph::Slyph(color pieceColor) : Piece(pieceColor)
 {
 }
 
-list<tableRelated::Move>* Slyph::getPossibleMoves(int table, int x, int y)
+list<tableRelated::Move>* Slyph::getPossibleMoves(int table, int x, int y, Piece* (&airTable)[8][12], Piece* (&earthTable)[8][12], Piece* (&undergroundTable)[8][12])
 {
 	list<tableRelated::Move>* possibleMoves = new list<tableRelated::Move>();
 	tableRelated::Move* currentMove = new tableRelated::Move();
@@ -21,28 +21,28 @@ list<tableRelated::Move>* Slyph::getPossibleMoves(int table, int x, int y)
 			//2:x,y
 			currentMove->y = y;
 			currentMove->x = x;
-			if (GameLogic::possibleMove(2, currentMove->y, currentMove->x) && GameState::earthTable[currentMove->y][currentMove->x] != NULL && GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			if (GameLogic::possibleMove(2, currentMove->y, currentMove->x) && earthTable[currentMove->y][currentMove->x] != NULL && earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 			//x,y-1
 			currentMove->y = y - 1;
 			currentMove->x = x;
-			if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && GameState::airTable[currentMove->y][currentMove->x] != NULL && GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && airTable[currentMove->y][currentMove->x] != NULL && airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, currentMove->type));
 			}
 			//x-1,y-1
 			currentMove->y = y - 1;
 			currentMove->x = x - 1;
-			if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && GameState::airTable[currentMove->y][currentMove->x] == NULL)
+			if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && airTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
 			//x+1,y-1
 			currentMove->y = y - 1;
 			currentMove->x = x + 1;
-			if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && GameState::airTable[currentMove->y][currentMove->x] == NULL)
+			if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && airTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
@@ -51,28 +51,28 @@ list<tableRelated::Move>* Slyph::getPossibleMoves(int table, int x, int y)
 			//2:x,y
 			currentMove->y = y;
 			currentMove->x = x;
-			if (GameLogic::possibleMove(2, currentMove->y, currentMove->x) && GameState::earthTable[currentMove->y][currentMove->x] != NULL && GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			if (GameLogic::possibleMove(2, currentMove->y, currentMove->x) && earthTable[currentMove->y][currentMove->x] != NULL && earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
 			//x,y+1
 			currentMove->y = y + 1;
 			currentMove->x = x;
-			if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && GameState::airTable[currentMove->y][currentMove->x] != NULL && GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && airTable[currentMove->y][currentMove->x] != NULL && airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
 			//x-1,y+1
 			currentMove->y = y + 1;
 			currentMove->x = x - 1;
-			if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && GameState::airTable[currentMove->y][currentMove->x] == NULL)
+			if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && airTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
 			//x+1,y+1
 			currentMove->y = y + 1;
 			currentMove->x = x + 1;
-			if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && GameState::airTable[currentMove->y][currentMove->x] == NULL)
+			if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && airTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
@@ -85,7 +85,7 @@ list<tableRelated::Move>* Slyph::getPossibleMoves(int table, int x, int y)
 		//1:x,y
 		currentMove->y = y;
 		currentMove->x = x;
-		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && GameState::airTable[currentMove->y][currentMove->x] == NULL)
+		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && airTable[currentMove->y][currentMove->x] == NULL)
 		{
 			possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 		}
@@ -97,7 +97,7 @@ list<tableRelated::Move>* Slyph::getPossibleMoves(int table, int x, int y)
 			currentMove->x = 0;
 			while (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 			{
-				if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && GameState::airTable[currentMove->y][currentMove->x] == NULL)
+				if (GameLogic::possibleMove(1, currentMove->y, currentMove->x) && airTable[currentMove->y][currentMove->x] == NULL)
 				{
 					possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 				}
@@ -110,7 +110,7 @@ list<tableRelated::Move>* Slyph::getPossibleMoves(int table, int x, int y)
 			currentMove->x = 0;
 			while (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 			{
-				if (GameLogic::possibleMove(currentMove->table, currentMove->y, currentMove->x) && GameState::airTable[currentMove->y][currentMove->x] == NULL)
+				if (GameLogic::possibleMove(currentMove->table, currentMove->y, currentMove->x) && airTable[currentMove->y][currentMove->x] == NULL)
 				{
 					possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 				}

@@ -7,7 +7,7 @@ Paladin::Paladin(color pieceColor) : Piece(pieceColor)
 {
 }
 
-list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
+list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y, Piece* (&airTable)[8][12], Piece* (&earthTable)[8][12], Piece* (&undergroundTable)[8][12])
 {
 
 	list<tableRelated::Move>* possibleMoves = new list<tableRelated::Move>();
@@ -20,11 +20,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y;
 		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 		{
-			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
+			if (airTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -34,11 +34,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y - 1;
 		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 		{
-			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
+			if (airTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -48,11 +48,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y - 1;
 		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 		{
-			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
+			if (airTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -62,11 +62,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y - 1;
 		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 		{
-			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
+			if (airTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -76,11 +76,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y;
 		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 		{
-			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
+			if (airTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -90,11 +90,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y + 1;
 		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 		{
-			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
+			if (airTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -104,11 +104,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y + 1;
 		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 		{
-			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
+			if (airTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -118,11 +118,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y + 1;
 		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 		{
-			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
+			if (airTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -132,11 +132,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
-			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
+			if (earthTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -146,11 +146,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y - 2;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
-			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
+			if (earthTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -160,11 +160,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
-			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
+			if (earthTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -174,11 +174,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y + 2;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
-			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
+			if (earthTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -188,11 +188,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y;
 		if (GameLogic::possibleMove(3, currentMove->y, currentMove->x))
 		{
-			if (GameState::undergroundTable[currentMove->y][currentMove->x] == NULL)
+			if (undergroundTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -202,11 +202,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y - 1;
 		if (GameLogic::possibleMove(3, currentMove->y, currentMove->x))
 		{
-			if (GameState::undergroundTable[currentMove->y][currentMove->x] == NULL)
+			if (undergroundTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -216,11 +216,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y;
 		if (GameLogic::possibleMove(3, currentMove->y, currentMove->x))
 		{
-			if (GameState::undergroundTable[currentMove->y][currentMove->x] == NULL)
+			if (undergroundTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -230,11 +230,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y + 1;
 		if (GameLogic::possibleMove(3, currentMove->y, currentMove->x))
 		{
-			if (GameState::undergroundTable[currentMove->y][currentMove->x] == NULL)
+			if (undergroundTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -246,11 +246,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
-			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
+			if (earthTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -260,11 +260,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y - 1;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
-			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
+			if (earthTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -274,11 +274,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y - 1;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
-			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
+			if (earthTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -288,11 +288,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y - 1;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
-			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
+			if (earthTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -302,11 +302,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
-			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
+			if (earthTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -316,11 +316,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y + 1;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
-			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
+			if (earthTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -330,11 +330,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y + 1;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
-			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
+			if (earthTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -344,11 +344,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y + 1;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
-			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
+			if (earthTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -358,11 +358,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y - 1;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
-			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
+			if (earthTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -372,11 +372,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y - 2;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
-			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
+			if (earthTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -386,11 +386,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y - 2;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
-			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
+			if (earthTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -400,11 +400,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y - 1;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
-			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
+			if (earthTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -414,11 +414,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y + 1;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
-			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
+			if (earthTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -428,11 +428,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y + 2;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
-			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
+			if (earthTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -442,11 +442,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y + 2;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
-			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
+			if (earthTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -456,11 +456,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y + 1;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
-			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
+			if (earthTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -470,11 +470,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y;
 		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 		{
-			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
+			if (airTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -484,11 +484,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y - 2;
 		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 		{
-			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
+			if (airTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -498,11 +498,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y;
 		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 		{
-			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
+			if (airTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -512,11 +512,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y + 2;
 		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 		{
-			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
+			if (airTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -526,11 +526,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y;
 		if (GameLogic::possibleMove(3, currentMove->y, currentMove->x))
 		{
-			if (GameState::undergroundTable[currentMove->y][currentMove->x] == NULL)
+			if (undergroundTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -540,11 +540,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y - 2;
 		if (GameLogic::possibleMove(3, currentMove->y, currentMove->x))
 		{
-			if (GameState::undergroundTable[currentMove->y][currentMove->x] == NULL)
+			if (undergroundTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -554,11 +554,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y;
 		if (GameLogic::possibleMove(3, currentMove->y, currentMove->x))
 		{
-			if (GameState::undergroundTable[currentMove->y][currentMove->x] == NULL)
+			if (undergroundTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -568,11 +568,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y + 2;
 		if (GameLogic::possibleMove(3, currentMove->y, currentMove->x))
 		{
-			if (GameState::undergroundTable[currentMove->y][currentMove->x] == NULL)
+			if (undergroundTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -584,11 +584,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y;
 		if (GameLogic::possibleMove(3, currentMove->y, currentMove->x))
 		{
-			if (GameState::undergroundTable[currentMove->y][currentMove->x] == NULL)
+			if (undergroundTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -598,11 +598,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y - 1;
 		if (GameLogic::possibleMove(3, currentMove->y, currentMove->x))
 		{
-			if (GameState::undergroundTable[currentMove->y][currentMove->x] == NULL)
+			if (undergroundTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -612,11 +612,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y - 1;
 		if (GameLogic::possibleMove(3, currentMove->y, currentMove->x))
 		{
-			if (GameState::undergroundTable[currentMove->y][currentMove->x] == NULL)
+			if (undergroundTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -626,11 +626,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y - 1;
 		if (GameLogic::possibleMove(3, currentMove->y, currentMove->x))
 		{
-			if (GameState::undergroundTable[currentMove->y][currentMove->x] == NULL)
+			if (undergroundTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -640,11 +640,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y;
 		if (GameLogic::possibleMove(3, currentMove->y, currentMove->x))
 		{
-			if (GameState::undergroundTable[currentMove->y][currentMove->x] == NULL)
+			if (undergroundTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -654,11 +654,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y + 1;
 		if (GameLogic::possibleMove(3, currentMove->y, currentMove->x))
 		{
-			if (GameState::undergroundTable[currentMove->y][currentMove->x] == NULL)
+			if (undergroundTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -668,11 +668,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y + 1;
 		if (GameLogic::possibleMove(3, currentMove->y, currentMove->x))
 		{
-			if (GameState::undergroundTable[currentMove->y][currentMove->x] == NULL)
+			if (undergroundTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -682,11 +682,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y + 1;
 		if (GameLogic::possibleMove(3, currentMove->y, currentMove->x))
 		{
-			if (GameState::undergroundTable[currentMove->y][currentMove->x] == NULL)
+			if (undergroundTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (undergroundTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 3, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -696,11 +696,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
-			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
+			if (earthTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -710,11 +710,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y - 2;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
-			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
+			if (earthTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -724,11 +724,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
-			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
+			if (earthTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -738,11 +738,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y + 2;
 		if (GameLogic::possibleMove(2, currentMove->y, currentMove->x))
 		{
-			if (GameState::earthTable[currentMove->y][currentMove->x] == NULL)
+			if (earthTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (earthTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 2, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -752,11 +752,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y;
 		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 		{
-			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
+			if (airTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -766,11 +766,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y - 1;
 		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 		{
-			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
+			if (airTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -780,11 +780,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y;
 		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 		{
-			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
+			if (airTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
@@ -794,11 +794,11 @@ list<tableRelated::Move>* Paladin::getPossibleMoves(int table, int x, int y)
 		currentMove->y = y + 1;
 		if (GameLogic::possibleMove(1, currentMove->y, currentMove->x))
 		{
-			if (GameState::airTable[currentMove->y][currentMove->x] == NULL)
+			if (airTable[currentMove->y][currentMove->x] == NULL)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::move));
 			}
-			else if (GameState::airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
+			else if (airTable[currentMove->y][currentMove->x]->getColor() != pieceColor)
 			{
 				possibleMoves->push_back(tableRelated::Move(table, x, y, 1, currentMove->x, currentMove->y, moveType::capture));
 			}
