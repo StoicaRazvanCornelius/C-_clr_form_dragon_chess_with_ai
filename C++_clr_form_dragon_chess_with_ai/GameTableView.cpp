@@ -74,7 +74,10 @@ void GameTableView::DisplayCells(Color white, Color black, Piece* initPosition[8
             Cell^ tmp = gcnew Cell(j, i, tableNumber, ' ');
             if (initPosition[i][j] != NULL)
             {
-                tmp->Text = gcnew String(initPosition[i][j]->getLetter() + "");
+                char pieceLetter[2];
+                pieceLetter[0] = initPosition[i][j]->getLetter();
+                pieceLetter[1] = '\0';
+                tmp->Text = gcnew String(pieceLetter);
                 if (initPosition[i][j]->getColor() == color::white) tmp->SetForegroundColor(Color::White);
                 else tmp->SetForegroundColor(Color::Black);
             }
