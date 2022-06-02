@@ -3,4 +3,4 @@
 #include "GameSetup.h"
 
 // dynamic depth. Less Pieces = Bigger depth
-int GameSetup::depth = 3;
+int GameSetup::depth = 2;

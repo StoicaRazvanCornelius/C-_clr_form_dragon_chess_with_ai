@@ -85,7 +85,13 @@ void GameLogic::MakeMove(int tableOrigin, int xOrigin, int yOrigin, int tableTar
 	case capture_afar:
 		SetPiece(tableTarget, xTarget, yTarget, NULL, airTable, earthTable, undergroundTable);
 		break;
+	case freezing:
+		SetPiece(tableTarget, xTarget, yTarget, NULL, airTable, earthTable, undergroundTable);
+		break;
 	default:
+		movingPiece = GetPiece(tableOrigin, xOrigin, yOrigin, airTable, earthTable, undergroundTable);
+		SetPiece(tableTarget, xTarget, yTarget, movingPiece, airTable, earthTable, undergroundTable);
+		SetPiece(tableOrigin, xOrigin, yOrigin, NULL, airTable, earthTable, undergroundTable);
 		break;
 	}
 

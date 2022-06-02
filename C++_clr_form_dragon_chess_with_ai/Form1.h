@@ -205,7 +205,15 @@ private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 		case capture_afar:
 			((Cell^)tables[tableTarget]->GetControlFromPosition(xTarget, yTarget))->Text = "";
 			break;
+		case freezing:
+			((Cell^)tables[tableTarget]->GetControlFromPosition(xTarget, yTarget))->Text = "";
+			break;
 		default:
+			originCell = ((Cell^)tables[tableOrigin]->GetControlFromPosition(xOrigin, yOrigin));
+			targetCell = ((Cell^)tables[tableTarget]->GetControlFromPosition(xTarget, yTarget));
+			targetCell->Text = originCell->Text;
+			targetCell->ForeColor = originCell->ForeColor;
+			originCell->Text = "";
 			break;
 		}
 		
