@@ -2,5 +2,5 @@
 class GameSetup
 {
 public: 
-	static int depth;
+	static int depth ;
 };
