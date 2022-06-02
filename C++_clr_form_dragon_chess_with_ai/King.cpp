@@ -197,7 +197,7 @@ list<tableRelated::Move>* King::getPossibleMoves(int table, int x, int y)
 
 int King::getPrice()
 {
-	return INT_MAX;
+	return 10000;
 }
 
 char King::getLetter()
