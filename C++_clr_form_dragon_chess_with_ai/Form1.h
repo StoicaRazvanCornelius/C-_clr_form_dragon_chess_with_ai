@@ -4,6 +4,7 @@
 #include "GameTableView.h"
 #include "GameLogic.h"
 #include "Constants.h"
+#include "GameSetup.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -55,15 +56,25 @@ namespace CppCLRWinFormsProject {
     private: System::Windows::Forms::Button^ upButton;
     private: System::Windows::Forms::Panel^ controlPanel;
     private: System::Windows::Forms::Button^ downButton;
+	private: System::Windows::Forms::Panel^ AISettings;
+	private: System::Windows::Forms::CheckBox^ enableAICheckbox;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::TrackBar^ AIDifficulty;
 	private: System::Windows::Forms::TableLayoutPanel^ gameGrid;
 	private:
 		void InitializeComponent(){
 			this->upButton = (gcnew System::Windows::Forms::Button());
 			this->controlPanel = (gcnew System::Windows::Forms::Panel());
+			this->AISettings = (gcnew System::Windows::Forms::Panel());
+			this->enableAICheckbox = (gcnew System::Windows::Forms::CheckBox());
 			this->downButton = (gcnew System::Windows::Forms::Button());
 			this->gameGrid = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->AIDifficulty = (gcnew System::Windows::Forms::TrackBar());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->controlPanel->SuspendLayout();
+			this->AISettings->SuspendLayout();
 			this->gameGrid->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->AIDifficulty))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// upButton
@@ -75,10 +86,10 @@ namespace CppCLRWinFormsProject {
 			this->upButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->upButton->ForeColor = System::Drawing::Color::White;
-			this->upButton->Location = System::Drawing::Point(83, 2);
-			this->upButton->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->upButton->Location = System::Drawing::Point(111, 2);
+			this->upButton->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->upButton->Name = L"upButton";
-			this->upButton->Size = System::Drawing::Size(29, 32);
+			this->upButton->Size = System::Drawing::Size(39, 39);
 			this->upButton->TabIndex = 1;
 			this->upButton->Text = L"/\\";
 			this->upButton->UseVisualStyleBackColor = false;
@@ -86,13 +97,35 @@ namespace CppCLRWinFormsProject {
 			// 
 			// controlPanel
 			// 
+			this->controlPanel->Controls->Add(this->AISettings);
 			this->controlPanel->Controls->Add(this->downButton);
 			this->controlPanel->Controls->Add(this->upButton);
-			this->controlPanel->Location = System::Drawing::Point(809, 2);
-			this->controlPanel->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->controlPanel->Location = System::Drawing::Point(1079, 2);
+			this->controlPanel->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->controlPanel->Name = L"controlPanel";
-			this->controlPanel->Size = System::Drawing::Size(115, 37);
+			this->controlPanel->Size = System::Drawing::Size(153, 549);
 			this->controlPanel->TabIndex = 3;
+			// 
+			// AISettings
+			// 
+			this->AISettings->Controls->Add(this->label1);
+			this->AISettings->Controls->Add(this->AIDifficulty);
+			this->AISettings->Controls->Add(this->enableAICheckbox);
+			this->AISettings->Location = System::Drawing::Point(0, 56);
+			this->AISettings->Name = L"AISettings";
+			this->AISettings->Size = System::Drawing::Size(150, 333);
+			this->AISettings->TabIndex = 3;
+			// 
+			// enableAICheckbox
+			// 
+			this->enableAICheckbox->AutoSize = true;
+			this->enableAICheckbox->Location = System::Drawing::Point(10, 21);
+			this->enableAICheckbox->Name = L"enableAICheckbox";
+			this->enableAICheckbox->Size = System::Drawing::Size(87, 20);
+			this->enableAICheckbox->TabIndex = 0;
+			this->enableAICheckbox->Text = L"Enable AI";
+			this->enableAICheckbox->UseVisualStyleBackColor = true;
+			this->enableAICheckbox->CheckedChanged += gcnew System::EventHandler(this, &Form1::enableAICheckbox_CheckedChanged);
 			// 
 			// downButton
 			// 
@@ -103,10 +136,10 @@ namespace CppCLRWinFormsProject {
 			this->downButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->downButton->ForeColor = System::Drawing::Color::White;
-			this->downButton->Location = System::Drawing::Point(48, 2);
-			this->downButton->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->downButton->Location = System::Drawing::Point(64, 2);
+			this->downButton->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->downButton->Name = L"downButton";
-			this->downButton->Size = System::Drawing::Size(31, 32);
+			this->downButton->Size = System::Drawing::Size(41, 39);
 			this->downButton->TabIndex = 2;
 			this->downButton->Text = L"\\/";
 			this->downButton->UseVisualStyleBackColor = false;
@@ -121,29 +154,54 @@ namespace CppCLRWinFormsProject {
 			this->gameGrid->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 87.18488F)));
 			this->gameGrid->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 12.81513F)));
 			this->gameGrid->Controls->Add(this->controlPanel, 1, 0);
-			this->gameGrid->Location = System::Drawing::Point(11, 10);
-			this->gameGrid->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->gameGrid->Location = System::Drawing::Point(15, 12);
+			this->gameGrid->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->gameGrid->Name = L"gameGrid";
 			this->gameGrid->RowCount = 1;
 			this->gameGrid->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->gameGrid->Size = System::Drawing::Size(926, 543);
+			this->gameGrid->Size = System::Drawing::Size(1235, 668);
 			this->gameGrid->TabIndex = 4;
+			// 
+			// AIDifficulty
+			// 
+			this->AIDifficulty->LargeChange = 1;
+			this->AIDifficulty->Location = System::Drawing::Point(0, 100);
+			this->AIDifficulty->Maximum = 4;
+			this->AIDifficulty->Minimum = 1;
+			this->AIDifficulty->Name = L"AIDifficulty";
+			this->AIDifficulty->Size = System::Drawing::Size(147, 56);
+			this->AIDifficulty->TabIndex = 1;
+			this->AIDifficulty->Value = 2;
+			this->AIDifficulty->ValueChanged += gcnew System::EventHandler(this, &Form1::AIDifficulty_ValueChanged);
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(3, 72);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(71, 16);
+			this->label1->TabIndex = 2;
+			this->label1->Text = L"AI Difficulty";
 			// 
 			// Form1
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ControlDarkDark;
-			this->ClientSize = System::Drawing::Size(948, 562);
+			this->ClientSize = System::Drawing::Size(1264, 692);
 			this->Controls->Add(this->gameGrid);
 			this->ForeColor = System::Drawing::Color::Transparent;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::SizableToolWindow;
-			this->MinimumSize = System::Drawing::Size(964, 592);
+			this->Margin = System::Windows::Forms::Padding(4);
+			this->MinimumSize = System::Drawing::Size(1279, 718);
 			this->Name = L"Form1";
 			this->Text = L"Dragon Chess";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			this->controlPanel->ResumeLayout(false);
+			this->AISettings->ResumeLayout(false);
+			this->AISettings->PerformLayout();
 			this->gameGrid->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->AIDifficulty))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -223,5 +281,15 @@ private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 		GameLogic gameLogic;
 		gameLogic.MakeMove(tableOrigin, xOrigin, yOrigin, tableTarget, xTarget, yTarget, type, isNextTurn);
 	}
+private: System::Void enableAICheckbox_CheckedChanged(System::Object^ sender, System::EventArgs^ e) 
+{
+	GameSetup::isAIEnabled = this->enableAICheckbox->Checked;
+	GameState::isAITurn = false; // the next move is for AI
+}
+	   
+private: System::Void AIDifficulty_ValueChanged(System::Object^ sender, System::EventArgs^ e) 
+{
+	GameSetup::depth = this->AIDifficulty->Value;
+}
 };
 }

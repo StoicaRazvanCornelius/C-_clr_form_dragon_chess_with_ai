@@ -55,18 +55,21 @@ moveType GameLogic::isMoveValid(int table, int x, int y, list<tableRelated::Move
 void GameLogic::EndTurn()
 {
 	GameState::ChangePlayerColor();
-	GameState::isAITurn = !GameState::isAITurn;
-	if (GameState::isAITurn)
+	if (GameSetup::isAIEnabled)
 	{
-		BoardStateTree moves = AI::BuildTree(GameState::airTable, GameState::earthTable, GameState::undergroundTable, Move(), GameSetup::depth);
-		int minMaxPrice = AI::minmax(moves);
-		for (auto it = moves.children.begin(); it != moves.children.end(); it++)
+		GameState::isAITurn = !GameState::isAITurn;
+		if (GameState::isAITurn)
 		{
-			if (it->price == minMaxPrice)
+			BoardStateTree moves = AI::BuildTree(GameState::airTable, GameState::earthTable, GameState::undergroundTable, Move(), GameSetup::depth);
+			int minMaxPrice = AI::minmax(moves);
+			for (auto it = moves.children.begin(); it != moves.children.end(); it++)
 			{
-				Move move = it->move;
-				CppCLRWinFormsProject::Form1::MakeMove(move.tableOrigin, move.xOrigin, move.yOrigin, move.table, move.x, move.y, move.type, true);
-				break;
+				if (it->price == minMaxPrice)
+				{
+					Move move = it->move;
+					CppCLRWinFormsProject::Form1::MakeMove(move.tableOrigin, move.xOrigin, move.yOrigin, move.table, move.x, move.y, move.type, true);
+					break;
+				}
 			}
 		}
 	}

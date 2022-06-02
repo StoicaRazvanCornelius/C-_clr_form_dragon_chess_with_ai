@@ -4,3 +4,4 @@
 
 // dynamic depth. Less Pieces = Bigger depth
 int GameSetup::depth = 2;
+bool GameSetup::isAIEnabled = false;
